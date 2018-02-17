@@ -1,0 +1,16 @@
+
+    <div id="rows">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <div class="input-group mb-3">
+        <form action="" method="post" name="form_citydetails" id="form_citydetails" enctype="multipart/form-data" onsubmit="return false;">
+          <input class="ff_elem form-control" type="text" name="ff_nm_from[]" placeholder="Origin" value="" id="f_elem_city"/>
+        </form>
+        </div>
+          <div class="input-group-prepend">
+            <div class="input-group mb-3">
+              <%= date_field_tag 'date', nil, placeholder: "date", class:'form-control', id:"input" %>
+            </div>
+          </div>  
+        <button class="btn btn-outline-secondary search" type="button">Geda Ride</button>
+      </div>
+    </div>
