@@ -1,3 +1,22 @@
-  <% @rides.each do |ride | %>
-  <%= ride.origin  %>
-  <% end %>
+
+
+
+<table class="table table-striped" id ="table">
+  <thead>
+    <!-- <tr> -->
+      <th >Origin</th>
+      <th>Destination</th>
+      <th >Date</th>
+    <!-- </tr> -->
+  </thead>
+  <tbody>
+      <% @rides.each do |ride| %>
+      <tr scope ="row">
+        <td><%= ride.origin.full_street_address  %></td>
+        <td><%= ride.destination.full_street_address  %></td>
+        <td>2/3/21</td>
+      </tr>
+      <% end %>
+
+  </tbody>
+</table>
