@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
   # get 'rides', to: 'ridesindex#bottom'
   resources :rides
+  resources :users
+
   root to: "home#show"
 end

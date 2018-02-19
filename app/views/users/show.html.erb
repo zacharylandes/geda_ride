@@ -1,0 +1,11 @@
+<% content_for :top  do %>
+<div id="user_show">
+
+  <%= @user.name %>
+  <div class = "user-image"><%= image_tag @user.image.url if @user.image.url %></div>
+
+<% if @user == current_user %>
+  <%= link_to 'Edit your profile', edit_user_path(current_user) %>
+<% end %>
+</div>
+<% end %>

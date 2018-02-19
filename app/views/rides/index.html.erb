@@ -1,14 +1,16 @@
 
+<% content_for :top do  %>
+  <%= render :partial =>'header' %>
+  <% end %>
 
 <% content_for :bottom do  %>
-<table class="table" >
+<table class=" col-md-12 table" >
   <thead>
     <tr>
-      <th scope="col" >Origin</th>
-      <th scope="col">Destination</th>
-      <th scope="col">Date</th>
-      <th scope="col">Driver</th>
-
+      <th  >Origin</th>
+      <th >Destination</th>
+      <th >Date</th>
+      <th >Driver</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +20,8 @@
         <td><%= ride.origin.full_street_address %></td>
         <td><%= ride.destination.full_street_address %></td>
         <td><%= ride.date%></td>
-        <td><%= ride.user.name %></td>
+        <td><%= link_to ride.user.name, user_path(ride.user) %></td>
+        <td id= "image-icon"><%= image_tag ride.user.image.url if ride.user.image.url%></td>
         <td>2/3/21</td>
       </tr>
       <% end %>

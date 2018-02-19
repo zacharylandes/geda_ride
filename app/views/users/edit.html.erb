@@ -1,0 +1,8 @@
+  <% content_for :top do %>
+    <% render :partial => "rides/header" %>
+      <%= form_for @user do |f| %>
+        <%= f.text_field :name, placeholder: "Name"%>
+        <%= f.file_field :image, placeholder: "Image"%>
+      <%= f.submit "Submit" , class: "btn btn-success btn-md" %>
+      <% end %>
+  <% end %>

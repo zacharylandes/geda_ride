@@ -9,7 +9,18 @@ HTML5 display definitions
   justify-content: flex-end;
   padding: 30px;
   border-bottom: none;
+}
 
+#user_show{
+          background-color: rgba(246,248,250,0.5);
+
+
+}
+.user-image img{
+  width: 200px;
+}
+#image-icon{
+  width: 50px;
 }
  /* .header-scroll{
   top:0;
@@ -207,23 +218,24 @@ vertical-align: top; /* 2 */ }
 Tables
 ========================================================================== */
 /* * Remove most spacing between table cells. */
-table { border-collapse: collapse;
+table {
+  display:grid;
         border-spacing: 0;
         height: 600px;
         font-size: 20px;
         overflow-y: scroll;
         border-radius:10px;
         background-color: rgba(246,248,250,0.5);
-          table-layout: fixed;
-  border-collapse: collapse;
+        border-collapse: separate;
 
 }
-tr{
-  margin:40px 0;
+#tr{
+  padding-left:40px;
 }
-thead th{
-  margin: 20px;
+#tr{
+  margin-left:20px;
 }
+
 
 /* ==========================================================================
 Global Styles

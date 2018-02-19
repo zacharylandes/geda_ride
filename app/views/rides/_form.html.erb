@@ -1,0 +1,9 @@
+      <%= form_for @ride do |f| %>
+        <%= f.label :date %>
+        <%= f.date_field :date%>
+        <%= f.label :origin %>
+        <%= f.text_field :origin%>
+        <%= f.label :destination %>
+        <%= f.text_field :destination%>
+      <%= f.submit "Make a Ride" , class: "btn btn-success btn-md" %>
+      <% end %>

@@ -2,22 +2,37 @@ class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    # binding.pry
-    # destination = Destination.within(15, :origin => params['loc'][1])
-     @rides = Ride.all
-     # origin.map {|origin| origin.ride}
-     # render :index
+    @rides = Origin.within(15, :origin=> params['origin']).map{|origin|origin.ride}
+  end
+
+  def new
+    @ride = Ride.new
   end
 
   def create
-    # response = Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{params['ff_nm_from']}&key=AIzaSyD8Er31WgERjL7NaVZmBE4bb-LAnXDlKiQ")
+    ride = RideService.new.create_ride(ride_params,current_user)
+    # if ride.save!
+    # binding.pry
+    redirect_to ride_path(ride)
+    # end
+    # origin = Origin.within(5, :origin => params['loc'][0])
+    # o = Origin.find_by("full_street_address LIKE ?", "%Denver, co%")
+    #
+    # d = Destination.find_by("full_street_address LIKE ?", "%San Francisco, CA%")
+
+     # response = Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{params['ff_nm_from']}&key=AIzaSyD8Er31WgERjL7NaVZmBE4bb-LAnXDlKiQ")
+     # binding.pry
     # response = Faraday.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{o.latitude},#{o.longitude}&destinations=#{d.latitude},#{d.longitude}&key=AIzaSyD8Er31WgERjL7NaVZmBE4bb-LAnXDlKiQ")
-    # redirect_to '/rides#bottom'
-     # rides_path( anchor:"bottom", loc: params['ff_nm_from'])
   end
 
+  def show
+    @ride = Ride.find(params[:id])
+  end
+
+  private
+
   def ride_params
-    params.require(:origin).permit(:origin, :destination)
+    params.require(:ride).permit(:origin, :destination, :date)
   end
 
 end

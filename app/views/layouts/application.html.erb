@@ -22,7 +22,7 @@
 
 <body id="top">
         <header id="home">
-          <nav>
+          <!-- <nav>
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
@@ -35,35 +35,24 @@
                 </div>
               </div>
             </div>
-          </nav>
+          </nav> -->
           <section class="hero" id="hero">
+            <div id="header">
+              <%= yield :header %>
+            </div>
             <div class="container">
               <div class="row">
                 <div class="col-md-12 text-right navicon" id="row">
                   <% if current_user %>
-                    Welcome <strong> <span> <%= current_user.name %></span></strong>
+                    Welcome <strong> <span> <%= link_to current_user.name, user_path(current_user) %></span></strong>
                     <%= link_to "Sign out", signout_path, class: 'login',id: "sign_out"  %>
+                    <%= link_to "Post a ride", new_ride_path, class: 'login',id: "sign_out"  %>
                   <% else %>
                     <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
                   <% end %>
                 </div>
               </div>
-              <div class="row ">
-                <div class="col-md-8 col-md-offset-2 text-center inner" id="header-scroll">
-                  <h1 class="animated fadeInDown">Geda<span>Ride</span></h1>
-                  <p class="animated fadeInUp delay-05s">Share Rides</p>
-
-                  <div class =  'top-yield'>
-                    <%= yield %>
-                  </div>
-                </div>
-              </div>
-    <div>
-
-    </div>
-    <div>
-    </div>
-            </div>
+            <%= yield :top %>
           </section>
         </header>
         <section class="intro text-center section-padding" id="intro">
