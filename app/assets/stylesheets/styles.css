@@ -9,7 +9,7 @@ HTML5 display definitions
   justify-content: flex-end;
   padding: 30px;
   border-bottom: none;
-  align-items:
+
 }
  /* .header-scroll{
   top:0;
@@ -18,8 +18,10 @@ HTML5 display definitions
   z-index: 1;
 
 }
-
-#f_elem_city, #f_elem_city_2{
+.origin {
+  margin-top:60px;
+}
+#f_elem_city, #f_elem_city_2, #ride-date{
   border-radius: 10px;
   margin-bottom: 20px;
 

@@ -5,13 +5,14 @@
     <div id="rows">
       <div class="col-md-6 col-md-offset-3 text-center">
         <div class="input-group mb-3">
-          <form  name="form_citydetails" action= '/rides' method= "post" enctype="multipart/form-data" />
-            <input class=" form-control" type="text" name="ff_nm_from[]" placeholder="Origin" value="" id="f_elem_city" />
-            <input class=" form-control" type="text" name="ff_nm_from[]" placeholder="Destination" value="" id="f_elem_city_2" />
-            <%= date_field_tag 'date', nil, placeholder: "date", class:'form-control', id:"input" %>
-            <button class="search" >Geda Ride</button>
-          </form>
+            <%= form_tag(rides_path, method: :get) do  %>
+            <p class="animated fadeInUp delay-05s origin">Where do you want a ride from?</p>
+              <%= text_field_tag 'origin', nil, placeholder: "origin", class:'form-control', id:"f_elem_city" %>
+            <p class="animated fadeInUp delay-05s origin">And when?</p>
 
+              <%= date_field_tag 'date', nil, placeholder: "date", class:'form-control', id:'ride-date'%>
+              <%=submit_tag "Geda Ride", class: "search" %>
+            <% end %>
         <div class="input-group-prepend">
           <div class="input-group mb-3">
           </div>
