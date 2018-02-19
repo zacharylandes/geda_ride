@@ -11,6 +11,19 @@ HTML5 display definitions
   border-bottom: none;
   align-items:
 }
+ /* .header-scroll{
+  top:0;
+ } */
+.form_citydetails{
+  z-index: 1;
+
+}
+
+#f_elem_city, #f_elem_city_2{
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+}
 .login{
   margin: 0 20px;
 }
@@ -19,7 +32,6 @@ HTML5 display definitions
 }
 #input{
 
-  border-radius: 10px;
 }
 .col-md-offset-3{
   display: flex;
@@ -144,7 +156,10 @@ legend { border: 0; /* 1 */
 * 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5, *    and Chrome.
 * 3. Improves appearance and consistency in all browsers. */
 button, input, select, textarea { font-size: 100%; /* 1 */
-	margin: 0; /* 2 */
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 10px;
+  /* 2 */
 	vertical-align: baseline; /* 3 */
 *vertical-align: middle; /* 3 */ }
 /* * Addresses Firefox 3+ setting `line-height` on `input` using ` !important` in
@@ -190,7 +205,24 @@ vertical-align: top; /* 2 */ }
 Tables
 ========================================================================== */
 /* * Remove most spacing between table cells. */
-table { border-collapse: collapse; border-spacing: 0; }
+table { border-collapse: collapse;
+        border-spacing: 0;
+        height: 600px;
+        font-size: 20px;
+        overflow-y: scroll;
+        border-radius:10px;
+        background-color: rgba(246,248,250,0.5);
+          table-layout: fixed;
+  border-collapse: collapse;
+
+}
+tr{
+  margin:40px 0;
+}
+thead th{
+  margin: 20px;
+}
+
 /* ==========================================================================
 Global Styles
 ========================================================================== */

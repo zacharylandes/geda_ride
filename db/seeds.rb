@@ -18,7 +18,7 @@ cities = ["Davis, CA "," Winters, CA","San Francisco, CA ", " Sacramento, CA"," 
  "Denver, co ","Boulder,CO ","Sacramento, CA", " littleton, co","New York, new york ",
 "chicago, il ", " los angeles,ca", " seatlle,wa", " st.louis, mo", " nashville,tn", " salt lake city,ut",
  " santa fe, nm", "santa cruz, ca", " eugene, or",  " arcata, ca", " stockton, ca ",  "bakersfield, ca",
- " san diego, ca"," santa ana,ca", " pasadena, ca"," montclair, ca"]
+ " san diego, ca"," santa ana, ca", " pasadena, ca"," montclair, ca"]
 
 260.times do |i|
   Origin.create!(full_street_address: cities[i], ride: Ride.find(i+1))

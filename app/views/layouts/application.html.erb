@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Halcyon Days - An Exclusive Freebie for Codrops</title>
+    <title>GedaRide</title>
+    <%= favicon_link_tag 'favicon-16x16.png' %>
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="app/assets/stylesheets/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-
- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
@@ -50,8 +49,10 @@
 
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center inner">
+              <div class="row ">
+                <div class="col-md-8 col-md-offset-2 text-center inner" id="header-scroll">
+                <%= image_tag 'car-draw.png', :class => "car-draw" %>
+
                   <h1 class="animated fadeInDown">Geda<span>Ride</span></h1>
                   <p class="animated fadeInUp delay-05s">Share Rides</p>
                 </div>
@@ -68,10 +69,9 @@
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2 wp1">
-                <%= image_tag 'car-draw.png', :class => "car-draw" %>
+                <%= yield %>
                 <h1 class="arrow">A Creative Portfolio Template</h1>
                 <p>Sed a lorem quis neque interdum <a href="#">consequat ut sed sem</a>. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent id tempor ipsum. Fusce at massa ac nunc porta fringilla sed eget neque. Quisque quis pretium nulla. Fusce eget bibendum neque, vel volutpat augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                <%= yield %>
               </div>
             </div>
           </div>

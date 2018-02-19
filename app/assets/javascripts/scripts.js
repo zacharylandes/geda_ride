@@ -3,8 +3,6 @@
 
 $(document).ready(function() {
 
-
-
 jQuery(function ()
  {
 	 jQuery("#f_elem_city").autocomplete({
@@ -20,7 +18,7 @@ jQuery(function ()
 		select: function (event, ui) {
 		 var selectedObj = ui.item;
 		 jQuery("#f_elem_city").val(selectedObj.value);
-		 return false;
+
 		},
 		open: function () {
 		 jQuery(this).removeClass("ui-corner-all").addClass("ui-corner-top");
@@ -32,39 +30,47 @@ jQuery(function ()
 	 jQuery("#f_elem_city").autocomplete("option", "delay", 100);
 	});
 
-$(".search").click(function(){
-	var place = $('#f_elem_city').val();
-            var geocoder =  new google.maps.Geocoder();
-    geocoder.geocode( { 'address': place }, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-						var loc = []
-						loc.push(results[0].geometry.location.lat())
-						loc.push(results[0].geometry.location.lng())
-					var url = '/rides/?'
-					$.ajax({
-					      url: url,
-					      type: 'post',
-					      data: {loc: loc},
-					      success:function(data){
-					          if(data.status == 'true'){
-					             // ddeo as you like
-					          }
-					          else{
-					              // do as you like
-					          }
-					      }
-  });
-
-          } else {
-            alert("Something got wrong " + status);
-          }
-        });
-});
 
 
-$(".login").click(function(){
-        $('#hero').animate({ marginTop: '500px' }, 1000);
-    });
+  
+
+// function geocodeAddress(geocoder, resultsMap, loc) {
+//         var address = document.getElementById(loc).value;
+//         geocoder.geocode({'address': address}, function(results, status) {
+//           if (status === 'OK') {
+//             return results[0].geometry.location
+//           } else {
+//             alert('Geocode was not successful for the following reason: ' + status);
+//           }
+//         });
+//       }
+
+
+
+
+
+// $(".search").click(function(){
+//   var place = $('#f_elem_city').val();
+//   var points = geocodeAddress(geocoder, resultsMap,place);
+//       var url = '/rides'
+//             $.ajax({
+//               url: url,
+//               type: 'POST',
+//               data: {loc: place},
+//               success:function(data){
+//                 if(data.status == 'true'){
+//                   // ddeo as you like
+//                 }
+//                 else{
+//                   // do as you like
+//                 }
+//               }
+//             });
+//             });
+
+// $(".login").click(function(){
+//         $('#hero').animate({ marginTop: '500px' }, 1000);
+//     });
 
 
 
