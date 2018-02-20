@@ -10,16 +10,27 @@ HTML5 display definitions
   padding: 30px;
   border-bottom: none;
 }
+#row a{
+  color:white
+}
+.user-show{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .logo img {
   width:70px;
 }
 
 #user_show{
-          background-color: rgba(246,248,250,0.5);
+  background-color: rgba(246,248,250,0.5);
 
 }
-#ride-list thead tr th{
-  width:200px;
+#ride-list tr th, #ride-list tr{
+  width: 200px;
+  font-size: 20px;
+  text-align:left;
+  border-bottom: 1px solid black;
 }
 .user-image img{
   width: 200px;
@@ -223,17 +234,16 @@ vertical-align: top; /* 2 */ }
 Tables
 ========================================================================== */
 /* * Remove most spacing between table cells. */
-table {
+/* table {
   display:grid;
         border-spacing: 0;
         height: 600px;
         font-size: 20px;
-        overflow-y: scroll;
         border-radius:10px;
         background-color: rgba(246,248,250,0.5);
         border-collapse: separate;
 
-}
+} */
 #tr{
   padding-left:40px;
 }

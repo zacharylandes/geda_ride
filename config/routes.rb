@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
+  root to: "home#show"
+  get '/home', to: "home#show"
   resource :home, only: [:show]
   # get 'rides', to: 'ridesindex#bottom'
   resources :rides
   resources :users
 
-  root to: "home#show"
 end

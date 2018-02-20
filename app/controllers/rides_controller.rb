@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @rides = RideService.new.find_ride(params['origin'], params['destination'])
+    @rides = RideService.new.find_ride(params['origin'], params['destination'], params['date'])
   # binding.pry
   # redirect_to '/rides#bottom'
   end

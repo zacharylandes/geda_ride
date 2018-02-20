@@ -20,6 +20,9 @@ describe 'user ' do
     expect(page).to have_content("#{Ride.first.origin.full_street_address}")
     expect(page).to have_content("#{Ride.first.destination.full_street_address}")
     expect(page).to have_content("#{Ride.first.date}")
-    
+
+  end
+  it 'a different user can see the posted ride' do
+    visit '/'
   end
 end

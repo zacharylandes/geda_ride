@@ -1,8 +1,16 @@
   <% content_for :top do %>
-    <% render :partial => "rides/header" %>
+   <%= render :partial => "layouts/header" %>
+  <% end %>
+
+  <% content_for :bottom do %>
+  <h1>Edit your profile</h1>
       <%= form_for @user do |f| %>
-        <%= f.text_field :name, placeholder: "Name"%>
-        <%= f.file_field :image, placeholder: "Image"%>
-      <%= f.submit "Submit" , class: "btn btn-success btn-md" %>
+
+      <p><%= f.label :Name %></p>
+      <p>  <%= f.text_field :name, placeholder: "Name"%></p>
+    <p>  <%= f.label :Image %></p>
+
+      <p>  <%= f.file_field :image, placeholder: "Image"%></p>
+    <p>  <%= f.submit "Submit" , class: "btn btn-md" %></p>
       <% end %>
   <% end %>
