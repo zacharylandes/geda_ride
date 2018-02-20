@@ -11,7 +11,6 @@ describe 'user ' do
 
     expect(current_path).to eq(new_ride_path)
 
-    # save_and_open_page
 
     fill_in 'ride[origin]', :with => "Winters, ca"
     fill_in 'ride[destination]', :with => "Sacramento, ca"
@@ -21,7 +20,6 @@ describe 'user ' do
     expect(page).to have_content("#{Ride.first.origin.full_street_address}")
     expect(page).to have_content("#{Ride.first.destination.full_street_address}")
     expect(page).to have_content("#{Ride.first.date}")
-
-
+    
   end
 end

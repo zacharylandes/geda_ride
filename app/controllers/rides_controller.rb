@@ -2,7 +2,9 @@ class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @rides = Origin.within(15, :origin=> params['origin']).map{|origin|origin.ride}
+    @rides = RideService.new.find_ride(params['origin'], params['destination'])
+  # binding.pry
+  # redirect_to '/rides#bottom'
   end
 
   def new
@@ -11,14 +13,8 @@ class RidesController < ApplicationController
 
   def create
     ride = RideService.new.create_ride(ride_params,current_user)
-    # if ride.save!
-    # binding.pry
+
     redirect_to ride_path(ride)
-    # end
-    # origin = Origin.within(5, :origin => params['loc'][0])
-    # o = Origin.find_by("full_street_address LIKE ?", "%Denver, co%")
-    #
-    # d = Destination.find_by("full_street_address LIKE ?", "%San Francisco, CA%")
 
      # response = Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{params['ff_nm_from']}&key=AIzaSyD8Er31WgERjL7NaVZmBE4bb-LAnXDlKiQ")
      # binding.pry

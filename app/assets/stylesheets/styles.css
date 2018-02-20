@@ -10,16 +10,21 @@ HTML5 display definitions
   padding: 30px;
   border-bottom: none;
 }
+.logo img {
+  width:70px;
+}
 
 #user_show{
           background-color: rgba(246,248,250,0.5);
 
-
+}
+#ride-list thead tr th{
+  width:200px;
 }
 .user-image img{
   width: 200px;
 }
-#image-icon{
+#image-icon img{
   width: 50px;
 }
  /* .header-scroll{

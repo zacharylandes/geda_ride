@@ -5,6 +5,40 @@ $(document).ready(function() {
 
 jQuery(function ()
  {
+	 jQuery("#f_elem_city_2").autocomplete({
+		source: function (request, response) {
+		 jQuery.getJSON(
+			"http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+			function (data) {
+			 response(data);
+			}
+		 );
+		},
+		minLength: 3,
+		select: function (event, ui) {
+		 var selectedObj = ui.item;
+		 jQuery("#f_elem_city_2").val(selectedObj.value);
+
+		},
+		open: function () {
+		 jQuery(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+		},
+		close: function () {
+		 jQuery(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+		}
+	 });
+	 jQuery("#f_elem_city_2").autocomplete("option", "delay", 100);
+	});
+
+
+
+
+
+
+
+
+jQuery(function ()
+ {
 	 jQuery("#f_elem_city").autocomplete({
 		source: function (request, response) {
 		 jQuery.getJSON(
@@ -32,45 +66,15 @@ jQuery(function ()
 
 
 
-  
-
-// function geocodeAddress(geocoder, resultsMap, loc) {
-//         var address = document.getElementById(loc).value;
-//         geocoder.geocode({'address': address}, function(results, status) {
-//           if (status === 'OK') {
-//             return results[0].geometry.location
-//           } else {
-//             alert('Geocode was not successful for the following reason: ' + status);
-//           }
-//         });
-//       }
 
 
 
 
 
-// $(".search").click(function(){
-//   var place = $('#f_elem_city').val();
-//   var points = geocodeAddress(geocoder, resultsMap,place);
-//       var url = '/rides'
-//             $.ajax({
-//               url: url,
-//               type: 'POST',
-//               data: {loc: place},
-//               success:function(data){
-//                 if(data.status == 'true'){
-//                   // ddeo as you like
-//                 }
-//                 else{
-//                   // do as you like
-//                 }
-//               }
-//             });
-//             });
 
-// $(".login").click(function(){
-//         $('#hero').animate({ marginTop: '500px' }, 1000);
-//     });
+
+
+
 
 
 
