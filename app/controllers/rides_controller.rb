@@ -3,8 +3,12 @@ class RidesController < ApplicationController
 
   def index
     @rides = RideService.new.find_ride(params['origin'], params['destination'], params['date'])
-  # binding.pry
-  # redirect_to '/rides#bottom'
+    if rides.class == Hash
+      render :no_match
+    else
+      @rides = rides
+
+    end
   end
 
   def new

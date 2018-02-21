@@ -7,13 +7,13 @@
   <table class = "table table-striped" id= 'ride-list'>
       <tr>
         <th>Offered By</th>
-        <th>Destination</th>
+        <th>Origin</th>
         <th>Date</th>
       </tr>
   <% @destinations.each do |destination| %>
   <tr>
     <td><%= link_to destination.ride.user.name, user_path(destination.ride.user) %></td>
-    <td><%= link_to destination.ride.origin.full_street_address, origins_path(destination.ride.origin) %></td>
+    <td><%= link_to destination.ride.origin.full_street_address, destinations_path(destination.ride.origin) %></td>
     <td><%= destination.ride.date%></td>
   </tr>
   <% end %>

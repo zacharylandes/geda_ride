@@ -12,24 +12,31 @@ class RideService
     origins = Origin.within(15, :origin=> origin).map{|origin|origin.ride}
     dests = Destination.within(15, :origin=> destination).map{|dest|dest.ride}
     if origins.any? && dests.any?
-       ride_match(matching_dates, origins, dests)
-    elsif origins.any?
-      binding.pry
-      return origins
-    elsif dests.any?
-      return dests
-    elsif matching_dates.any?
-      return matching_dates
+        return ride_match(matching_dates, origins, dests)
+        if !ride_match(matching_dates, origins, dests).any?
+          no_match(origins,dests,matching_dates)
+        end
     else
-     return false
+      no_match(origins,dests,matching_dates)
     end
+  end
+
+  def no_match(origins,dests,dates)
+    no_match = {}
+    if origins.any?
+      no_match['origins'] = origins
+    elsif dests.any?
+      no_match['dests'] = dests
+    elsif dates.any?
+      no_match['dates'] = dates
+    end
+    no_match
   end
 
   def ride_match(matching_dates,origins,dests)
     origins.select do |ride|
-      if ride.in?(dests) && ride.in?(matching_dates)
-        ride
-      end
+      ride if ride.in?(dests) && ride.in?(matching_dates)
     end
   end
+
 end
