@@ -15,6 +15,6 @@ describe 'user edit page' do
     click_on 'Submit'
 
     expect(current_path).to eq(user_path(user))
-
+    
   end
 end

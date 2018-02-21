@@ -3,6 +3,7 @@
     <%= render :partial => "layouts/logo" %>
   <% end %>
 <% content_for :bottom  do %>
+
   <div class = "user-show">
     <div id="user_show">
       <h1><%= @user.name %></h1>
@@ -14,17 +15,19 @@
       <% end %>
     </div>
     <div class="user-rides">
-      <h1>Your Rides-</h1>
+      <h1>Rides offered by this user</h1>
       <table  class = "table table-striped" id= 'ride-list' >
           <tr>
+            <th >Ride</th>
             <th >Origin</th>
             <th >Destination</th>
             <th >Date</th>
           </tr>
             <% @user.rides.each do |ride| %>
             <tr >
-              <td><%= ride.origin.full_street_address %></td>
-              <td><%= ride.destination.full_street_address %></td>
+              <td><%= link_to "View", ride_path(ride) %>
+              <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
+              <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
               <td><%= ride.date%></td>
             </tr>
             <% end %>

@@ -1,5 +1,16 @@
+  <% content_for :top do %>
+    <%= render :partial => "layouts/header" %>
+    <%= render :partial => "layouts/logo" %>
+  <% end %>
 <% content_for :bottom do  %>
-  <%= @ride.origin.full_street_address %>
-  <%= @ride.destination.full_street_address %>
-  <%= @ride.date %>
+  <div class = 'ride-show'>
+    <h3>Offered by</h3>
+    <%=link_to @ride.user.name, user_path(@ride.user) %>
+  <h3>Starting</h3>
+  <p><%= @ride.origin.full_street_address %></p>
+  <h3>Ending</h3>
+  <p><%= @ride.destination.full_street_address %></p>
+  <h3>Date</h3>
+  <p><%= @ride.date %></p>
+</div>
 <% end %>

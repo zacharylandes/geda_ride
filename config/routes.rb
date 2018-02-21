@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root to: "home#show"
   get '/home', to: "home#show"
   resource :home, only: [:show]
-  # get 'rides', to: 'ridesindex#bottom'
+  resources :destinations, only: [:index]
+  resources :origins, only: [:index]
   resources :rides
   resources :users
 

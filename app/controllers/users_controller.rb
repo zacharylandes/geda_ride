@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
   end
+
   def new
     @user = User.new
   end
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
   def show
     @user = User.find(params[:id])
   end
@@ -25,7 +27,6 @@ class UsersController < ApplicationController
     user  = current_user
     user.update(user_params)
     redirect_to user_path(user)
-
   end
 
   def destroy

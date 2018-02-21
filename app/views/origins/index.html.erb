@@ -1,0 +1,21 @@
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
+<% content_for :bottom do  %>
+  <h1>Rides coming from: <%= @origins.first.full_street_address %></h1>
+  <table class = "table table-striped" id= 'ride-list'>
+      <tr>
+        <th>Offered By</th>
+        <th>Destination</th>
+        <th>Date</th>
+      </tr>
+  <% @origins.each do |origin| %>
+  <tr>
+    <td><%= link_to origin.ride.user.name, user_path(origin.ride.user) %></td>
+    <td><%= link_to origin.ride.destination.full_street_address, destinations_path( origin.ride.destination) %></td>
+    <td><%= origin.ride.date%></td>
+  </tr>
+  <% end %>
+</table>
+<% end %>
