@@ -2,28 +2,28 @@
     <%= render :partial => "layouts/header" %>
     <%= render :partial => "layouts/logo" %>
   <% end %>
+
 <% content_for :bottom do  %>
+  <h1>Trip info</h1>
+
+
 <div class = 'ride-show-container'>
   <div class = 'ride-show'>
-
-    <h3>Offered by</h3>
-      <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
+    <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
     <h3>Starting</h3>
-      <p id="start"><%= @ride.origin.full_street_address   %></p>
+    <p id="start"><%= @ride.origin.full_street_address   %></p>
     <h3>Ending</h3>
-      <p id="end"> <%= @ride.destination.full_street_address %></p>
+    <p id="end"> <%= @ride.destination.full_street_address %></p>
     <h3>Date</h3>
-      <p><%= @ride.date %></p>
-</div>
+    <p><%= @ride.date %></p>
 
-<div id="route">
-  <h3>Trip info</h3>
-    <%= @ride.route(@ride) %>
+
 </div>
   <div id="map">
+
   </div>
   <div id="directions-panel">
 
   </div>
-</div>
 <% end %>
+</div>

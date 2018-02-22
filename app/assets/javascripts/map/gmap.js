@@ -16,7 +16,7 @@
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
-          // waypoints: waypts,
+          waypoints: waypts,
           optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {
@@ -39,3 +39,4 @@
           }
         });
       }
+  

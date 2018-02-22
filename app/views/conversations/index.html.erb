@@ -1,20 +1,22 @@
-<% content_for :bottom do  %>
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
 
-  <h1>All Conversations</h1>
-  <table  class = "table table-striped" id= 'ride-list' >
+<% content_for :bottom do  %>
+  <h1>Your Conversations</h1>
+  <table class="table table-striped" id= 'ride-list' >
     <tr>
       <th >User</th>
       <th >Subject</th>
-
+      <th >Date</th>
     </tr>
-
-  <% @conversations.each do |conversation| %>
-  <tr >
-      <td>
-          <%= User.find(conversation.receipts.first.receiver_id).name %>
-          <%= link_to conversation.subject, conversation_path(conversation) %>
-      </td>
-      </tr>
+    <% @conversations.each do |conversation| %>
+    <tr >
+      <td>  <%= User.find( conversation.receipts.where.not(receiver_id:current_user.id).first.receiver_id).name %></td>
+      <td>  <%= link_to conversation.subject, conversation_path(conversation) %></td>
+      <td>  <%= conversation.updated_at.strftime('%m-%d-%y') %></td>
+    </tr>
       <% end %>
     </table>
     <%= link_to "New Message", new_conversation_path %>

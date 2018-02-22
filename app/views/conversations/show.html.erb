@@ -1,17 +1,26 @@
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
+
 <% content_for :bottom do  %>
-<h1><%= @conversation.subject %></h1>
-
-<% @conversation.receipts.each do |receipt| %>
-    <div>
-        <%= receipt.message.body %>
+  <div class =  "convo-container">
+    <div class = 'message-list'>
+      <h1><%= @conversation.subject %></h1>
+      <% @conversation.receipts.where(receiver_id:current_user.id).each do |receipt| %>
+          <div class = 'message-body'>
+             <h4>Message</h4>
+              <p><%= receipt.message.body %></p>
+              <p><%= button_to 'Delete', conversation_message_path(@conversation,receipt), method: :delete %>  </p>
+          </div>
+      <% end %>
     </div>
-<% end %>
-
-<%= form_tag conversation_messages_path(@conversation),method: :post do  %>
-    <div>
-        <%= text_area_tag :body %>
+    <div class = 'new-message'>
+      <h3>New Message</h3>
+      <%= form_tag conversation_messages_path(@conversation) ,method: :post do  %>
+        <p><%= text_area_tag :body %></p>
+        <p><%= submit_tag "Send Message" %></p>
+      <% end %>
     </div>
-
-    <%= submit_tag %>
-<% end %>
+  </div>
 <% end %>
