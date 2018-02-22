@@ -31,7 +31,6 @@ describe 'messages' do
 
       expect(user_1.mailbox.conversations.first.receipts.count).to eq(2)
 
-
   end
 
 end
