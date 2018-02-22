@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   resources :rides
   resources :users
 
+resources :conversations do
+  resources :messages
+ end
+
 end

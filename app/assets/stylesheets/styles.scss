@@ -15,7 +15,21 @@ HTML5 display definitions
     height: 30px;
     margin: 20px 0;
   }
+  .message-body {
+    display:block;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    padding:10px;
+    border: 2px solid grey;
+    margin: 20px 0px;
+   }
 
+  .convo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   #ride{
     text-shadow: 1px 1px  black;
   }
@@ -312,7 +326,7 @@ nav ul li a:hover, nav ul li a:focus { text-decoration: none; color: rgba(255, 2
 /* ==========================================================================
 Hero
 ========================================================================== */
-  .hero, #hero { background: url('euro.jpg') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 40px 0 100px 0; height: auto; }
+  .hero, #hero { background: image-url('euro.jpg') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 40px 0 100px 0; height: auto; }
 .hero h1 { font-size: 40px; letter-spacing: 12px; margin: 10px; }
 .hero h1 span { color: white; display: inline-block; }
 .hero p { letter-spacing: 1px; color:white }
