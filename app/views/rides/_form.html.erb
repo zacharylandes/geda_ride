@@ -1,9 +1,19 @@
-      <%= form_for @ride do |f| %>
-        <%= f.label :date %>
-        <%= f.date_field :date%>
-        <%= f.label :origin %>
-        <%= f.text_field :origin%>
-        <%= f.label :destination %>
-        <%= f.text_field :destination%>
-      <%= f.submit "Make a Ride" , class: "btn btn-success btn-md" %>
-      <% end %>
+  <% content_for :top do %>
+    <%= render :partial => "layouts/header" %>
+    <%= render :partial => "layouts/logo" %>
+  <% end %>
+
+  <% content_for :bottom do %>
+    <%= form_for @ride do |f| %>
+  <div id="new_ride_form">
+      <%= f.label :date %>
+      <%= f.date_field :date%>
+      <%= f.label :origin %>
+      <%= f.text_field :origin, id:'start'%>
+      <%= f.label :destination %>
+      <%= f.text_field :destination, id:'end'%>
+    <%= f.submit "Make a Ride" , class: "btn btn-success btn-md" %>
+    <% end %>
+  </div>
+
+<% end %>

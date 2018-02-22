@@ -9,6 +9,7 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'pry'
 gem 'faker'
 gem 'faraday'
+gem 'figaro'
 gem 'geokit-rails'
 gem 'geocoder'
 gem 'StreetAddress', :require => "street_address"
@@ -44,6 +45,7 @@ group :development, :test do
     gem 'rspec-rails', '~> 3.7'
     gem 'factory_bot_rails'
     gem 'launchy'
+    gem 'shoulda-matchers', '~> 3.1'
     gem 'capybara'
     gem 'vcr', '2.2.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

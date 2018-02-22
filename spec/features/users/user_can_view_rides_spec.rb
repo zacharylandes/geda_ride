@@ -20,6 +20,10 @@ describe 'rides' do
     expect(current_path).to eq(home_path)
     expect(page).to have_content("winters, ca")
     expect(page).to have_content("davis, ca")
+
+    click_on 'View'
+
+    expect(current_path).to eq(ride_path(ride))
    end
   end
 end

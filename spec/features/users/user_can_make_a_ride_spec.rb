@@ -15,6 +15,7 @@ describe 'user ' do
     fill_in 'ride[origin]', :with => "Winters, ca"
     fill_in 'ride[destination]', :with => "Sacramento, ca"
     page.find('#ride_date').set("2018-03-01")
+    
     click_on 'Make a Ride'
 
     expect(page).to have_content("#{Ride.first.origin.full_street_address}")

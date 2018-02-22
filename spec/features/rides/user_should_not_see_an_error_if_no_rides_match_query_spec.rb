@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'rides' do
-    it 'can see all rides departing from an origin' do
-      VCR.use_cassette 'api_response' do
+    it 'should not see an error if there are no matchin rides' do
+      VCR.use_cassette 'api_response_ride_fail' do
 
       user = create(:user)
       ride = create(:ride, user:user )
@@ -15,17 +15,16 @@ describe 'rides' do
 
       visit '/'
 
-      fill_in 'f_elem_city', :with => "winters, ca"
-      fill_in 'f_elem_city_2', :with => "davis, ca"
-      fill_in 'date', :with => "2018-02-22"
+      fill_in 'f_elem_city', :with => "portland, pr"
+      fill_in 'f_elem_city_2', :with => "fresno, ca"
+      fill_in 'date', :with => "2018-04-22"
 
       click_button 'Geda Ride'
 
-      click_on 'winters'
 
-      expect(page).to have_content('oakland, ca')
-      expect(page).to have_content('davis, ca')
-
+      expect(page).to have_content("Couldn't Find any rides")
     end
   end
+
+
 end

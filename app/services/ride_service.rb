@@ -7,6 +7,7 @@ class RideService
     ride
   end
 
+
   def find_ride(origin, destination, date)
     matching_dates = Ride.where(date: date)
     origins = Origin.within(15, :origin=> origin).map{|origin|origin.ride}

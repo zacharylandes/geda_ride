@@ -26,7 +26,8 @@ class RidesController < ApplicationController
   end
 
   def show
-    @ride = Ride.find(params[:id])
+    ride = Ride.find(params[:id])
+    @ride = RideDecorator.new(ride)
   end
 
   private

@@ -1,34 +1,3 @@
-  <% content_for :top do %>
-    <%= render :partial => "layouts/header" %>
-    <%= render :partial => "layouts/logo" %>
-  <% end %>
-<% content_for :bottom do  %>
-<div class = 'ride-show-container'>
-  <div class = 'ride-show'>
-
-    <h3>Offered by</h3>
-      <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
-    <h3>Starting</h3>
-      <p id="start"><%= @ride.origin.full_street_address   %></p>
-    <h3>Ending</h3>
-      <p id="end"> <%= @ride.destination.full_street_address %></p>
-    <h3>Date</h3>
-      <p><%= @ride.date %></p>
-</div>
-
-<div id="route">
-  <h3>Trip info</h3>
-    <%= @ride.route(@ride) %>
-</div>
-  <div id="map">
-  </div>
-  <div id="directions-panel">
-
-  </div>
-</div>
-<% end %>
-
-<script>
       function initMap() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -47,7 +16,7 @@
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
-          waypoints: waypts,
+          // waypoints: waypts,
           optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {
@@ -70,7 +39,3 @@
           }
         });
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5--gXtmLNeS8Rqe2fISkUIHlO81DBYnw&callback=initMap">
-    </script>

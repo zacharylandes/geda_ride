@@ -24,6 +24,7 @@ describe 'user' do
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("chicago, il")
+
    end
   end
 end
