@@ -12,10 +12,16 @@
       </div>
       <% if @user == current_user %>
         <h3><%= link_to 'Edit your profile', edit_user_path(current_user) %></h3>
+        <h3><%= link_to 'Your Messages', conversations_path %></h3>
       <% end %>
     </div>
-    <div class="user-rides">
-      <h1>Rides offered by this user</h1>
+      <% if @user == current_user %>
+        <div class="user-rides">
+          <h1>Your rides</h1>
+        <% else %>
+        <div class="user-rides">
+          <h1>Rides offered by this user</h1>
+      <% end %>
       <table  class = "table table-striped" id= 'ride-list' >
           <tr>
             <th >Ride</th>
