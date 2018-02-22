@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+gem 'mailboxer'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

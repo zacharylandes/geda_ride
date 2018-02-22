@@ -1,0 +1,21 @@
+<% content_for :bottom do  %>
+
+  <h1>All Conversations</h1>
+  <table  class = "table table-striped" id= 'ride-list' >
+    <tr>
+      <th >User</th>
+      <th >Subject</th>
+
+    </tr>
+
+  <% @conversations.each do |conversation| %>
+  <tr >
+      <td>
+          <%= User.find(conversation.receipts.first.receiver_id).name %>
+          <%= link_to conversation.subject, conversation_path(conversation) %>
+      </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= link_to "New Message", new_conversation_path %>
+      <% end %>
