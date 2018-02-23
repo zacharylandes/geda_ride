@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-      render template: '/layouts/not_found'
+      render template: '/home/not_found'
   end
 
 end

@@ -39,6 +39,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'mailboxer'
 gem 'will_paginate', '~> 3.1.0'
+    gem 'render_anywhere', :require => false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -4,7 +4,7 @@
 <% content_for :top do  %>
   <div class="row ">
     <div class="col-md-8 col-md-offset-2 text-center " id="header-scroll inner">
-      <div class ='logo'><%= image_tag(asset_path("car-go.png")) %></div>
+      <div class ='logo'><%= link_to image_tag(asset_path("car-go.png")), home_path%></div>
       <h1 class="animated fadeInDown">Geda<span id="ride">Ride</span></h1>
       <p class="animated fadeInUp delay-05s">Share Rides</p>
         <div id="rows">
@@ -12,11 +12,11 @@
             <div class="input-group mb-3">
                 <%= form_tag(home_path(:anchor => "bottom"), method: :get) do  %>
                   <p class="animated fadeInUp delay-05s origin">Where do you want a ride from?</p>
-                  <%= text_field_tag :origin, nil, placeholder: "origin", class:'form-control', id:"f_elem_city" %>
+                  <%= text_field_tag :origin, nil, :required => true, placeholder: "origin", class:'form-control', id:"f_elem_city"  %>
                   <p class="animated fadeInUp delay-05s origin"> And where are you headed?</p>
-                  <%= text_field_tag :destination, nil, placeholder: "destination", class:'form-control', id:"f_elem_city_2" %>
+                  <%= text_field_tag :destination, nil, :required => true, placeholder: "destination", class:'form-control', id:"f_elem_city_2" %>
                   <p class="animated fadeInUp delay-05s origin">whenish?</p>
-                  <%= date_field_tag :date, nil, placeholder: "date", class:'form-control', id:'ride-date'%>
+                  <%= date_field_tag :date, nil, placeholder: "date", class:'form-control', id:'ride-date', :required => true%>
                   <%=submit_tag "Geda Ride", class: "search" %>
                 <% end %>
             <div class="input-group-prepend">

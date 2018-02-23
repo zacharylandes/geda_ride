@@ -5,7 +5,7 @@ describe 'rides' do
       VCR.use_cassette 'api_response' do
 
       user = create(:user)
-      ride = create(:ride, user:user )
+      ride = create(:ride, user:user, date: "2018-02-22" )
       ride_2 = create(:ride, user:user )
 
       origin  = Origin.create!(full_street_address: "winters, ca", ride:ride )
@@ -20,6 +20,8 @@ describe 'rides' do
       fill_in 'date', :with => "2018-02-22"
 
       click_button 'Geda Ride'
+
+      save_and_open_page
 
       click_on 'winters'
 

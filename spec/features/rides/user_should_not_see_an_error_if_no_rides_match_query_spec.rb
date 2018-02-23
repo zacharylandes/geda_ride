@@ -21,7 +21,6 @@ describe 'rides' do
 
       click_button 'Geda Ride'
 
-
       expect(page).to have_content("Couldn't Find any rides")
     end
   end

@@ -1,4 +1,5 @@
       function initMap() {
+
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -12,10 +13,9 @@
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
-
         directionsService.route({
-          origin: document.getElementById('start').value,
-          destination: document.getElementById('end').value,
+          origin: document.getElementById('start').innerHTML,
+          destination: document.getElementById('end').innerHTML,
           travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {

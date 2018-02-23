@@ -1,6 +1,6 @@
 <%= render :partial => 'layouts/search' %>
 
-  <% content_for :bottom do  %>
+<% content_for :bottom do  %>
   <h3> Sorry There are no rides that match your search, but here are some related rides</h3>
   <table  class = "table table-striped" id= 'ride-list' >
       <tr>
@@ -9,14 +9,12 @@
         <th >Date</th>
         <th >Driver</th>
       </tr>
-        <% @rides.each do |ride| %>
-        <tr >
-          <td><%= link_to ride.origin.full_street_address, origins_path( ride.origin) %></td>
-          <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
-          <td><%= ride.date%></td>
-          <td><%= link_to ride.user.name, user_path(ride.user) %></td>
-          <td id= "image-icon"><%= image_tag ride.user.image.url if ride.user.image.url%></td>
-        </tr>
-        <% end %>
+
+      <% if @locations %>
+        <%= render :partial => 'no_match_locations' %>
+      <% elsif @rides %>
+        <%= render :partial => 'no_match_rides' %>
+      <% end %>
+
   </table>
 <% end %>

@@ -1,0 +1,9 @@
+        <% @locations.first.each do |location| %>
+        <tr >
+          <td><%= link_to location.ride.origin.full_street_address, origins_path( location.ride.origin) %></td>
+          <td><%= link_to location.ride.destination.full_street_address, destinations_path( location.ride.destination) %></td>
+          <td><%= location.ride.date%></td>
+          <td><%= link_to location.ride.user.name, user_path(location.ride.user) %></td>
+          <td id= "image-icon"><%= image_tag location.ride.user.image.url if location.ride.user.image.url%></td>
+        </tr>
+        <% end %>

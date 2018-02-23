@@ -3,6 +3,10 @@
 /* ==========================================================================
 HTML5 display definitions
 ========================================================================== */
+#map{
+  width:400px;
+  height:400px;
+}
   #inner{
     margin-top:100px;
   }
@@ -27,6 +31,11 @@ HTML5 display definitions
 
   .convo-container{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .ride-show-container{
+    display:flex;
     flex-direction: row;
     justify-content: space-between;
   }
