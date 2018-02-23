@@ -21,7 +21,6 @@ describe 'rides' do
 
       click_button 'Geda Ride'
 
-      save_and_open_page
 
       click_on 'winters'
 

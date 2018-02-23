@@ -21,7 +21,7 @@ describe 'rides' do
 
       click_button 'Geda Ride'
 
-      expect(page).to have_content("Couldn't Find any rides")
+      expect(page).to have_content(" We couldn't find any places matching that location ")
     end
   end
 

@@ -7,13 +7,8 @@ class HomeController < ApplicationController
           render :not_found
       elsif ride.class == Hash
         if !ride.values.first.nil?
-          if ride.keys.first=="dates"
             @rides = ride.values
             render :no_match
-          else
-            @locations = ride.values
-            render :no_match
-        end
         else
           render :not_found
         end

@@ -7,38 +7,43 @@ class RideService
     ride
   end
 
-def error
-  html = render :template => 'home/not_found',
-                :layout => 'application'
-  html
-end
+  def error
+    html = render :template => 'home/not_found',
+                  :layout => 'application'
+    html
+  end
 
-  def find_ride(origin, destination, date)
-    matching_dates = Ride.where(date: date)
+   def origin_finder(origin)
     begin
-      origins = Origin.within(15, :origin=> origin)
+      Origin.within(15, :origin=> origin)
     rescue Geokit::Geocoders::GeocodeError
-     return  error
-      end
-    begin
-      dests = Destination.within(15, :origin=> destination)
-    rescue Geokit::Geocoders::GeocodeError
-    return error
-      end
-    if origins.map{|origin|origin.ride}.any? && dests.map{|dest|dest.ride}.any? && !dests.nil? && !origins.nil?
-        if !ride_match(matching_dates, origins, dests).any?
-          no_match(origins,dests,matching_dates)
-        else
-          ride_match(matching_dates, origins, dests)
-        end
-    else
-      no_match(origins,dests,matching_dates)
+      return  error
     end
   end
 
-  def error
-
+  def dest_finder(destination)
+    begin
+      dests = Destination.within(15, :origin=> destination)
+    rescue Geokit::Geocoders::GeocodeError
+      return error
+    end
   end
+
+  def find_ride(origin, destination, date)
+    matching_dates = Ride.where(date: date)
+    ride_origins = origin_finder(origin).map{|origin|origin.ride}
+    ride_dests = dest_finder(destination).map{|dest|dest.ride}
+    if ride_origins.any? && ride_dests.any? && !ride_dests.nil? && !ride_origins.nil?
+        if !ride_match(matching_dates, ride_origins, ride_dests).any?
+          no_match(ride_origins,ride_dests,matching_dates)
+        else
+          ride_match(matching_dates, ride_origins,ride_dests)
+        end
+    else
+      no_match(ride_origins,ride_dests,matching_dates)
+    end
+  end
+
 
   def no_match(origins,dests,dates)
     no_match = {}
@@ -53,8 +58,8 @@ end
   end
 
   def ride_match(matching_dates,origins,dests)
-    origins.map{|origin|origin.ride}.select do |ride|
-      ride if ride.in?(dests.map{|dest|dest.ride}) && ride.in?(matching_dates)
+    origins.select do |ride|
+      ride if ride.in?(dests) && ride.in?(matching_dates)
     end
   end
 
