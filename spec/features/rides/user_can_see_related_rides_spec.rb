@@ -70,7 +70,6 @@ describe 'rides' do
 
       click_button 'Geda Ride'
 
-
       expect(page).to have_content('winters, ca')
     end
   end

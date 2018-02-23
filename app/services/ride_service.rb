@@ -7,32 +7,36 @@ class RideService
     ride
   end
 
-  def error
-    html = render :template => 'home/not_found',
-                  :layout => 'application'
-    html
-  end
-
    def origin_finder(origin)
     begin
-      Origin.within(15, :origin=> origin)
+      origin = Origin.within(15, :origin=> origin)
     rescue Geokit::Geocoders::GeocodeError
-      return  error
+      return  false
     end
+    origin.map{|origin|origin.ride}
   end
 
   def dest_finder(destination)
     begin
       dests = Destination.within(15, :origin=> destination)
     rescue Geokit::Geocoders::GeocodeError
-      return error
+      return false
     end
+    dests.map{|dest|dest.ride}
   end
 
   def find_ride(origin, destination, date)
-    matching_dates = Ride.where(date: date)
-    ride_origins = origin_finder(origin).map{|origin|origin.ride}
-    ride_dests = dest_finder(destination).map{|dest|dest.ride}
+      matching_dates = Ride.where(date: date)
+      ride_origins =  origin_finder(origin)
+      ride_dests =  dest_finder(destination)
+      if ride_origins == false || ride_dests == false
+        return false
+      else
+        lookup(matching_dates, ride_origins, ride_dests)
+      end
+  end
+
+  def lookup(matching_dates, ride_origins, ride_dests)
     if ride_origins.any? && ride_dests.any? && !ride_dests.nil? && !ride_origins.nil?
         if !ride_match(matching_dates, ride_origins, ride_dests).any?
           no_match(ride_origins,ride_dests,matching_dates)

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'rides' do
-    it 'should not see an error if there are no matchin rides' do
+    it 'should not see an error if there are no matching rides' do
       VCR.use_cassette 'api_response_ride_fail' do
 
       user = create(:user)
@@ -22,6 +22,23 @@ describe 'rides' do
       click_button 'Geda Ride'
 
       expect(page).to have_content(" We couldn't find any places matching that location ")
+    end
+  end
+
+    it 'should not see an error if the places are not real ' do
+      VCR.use_cassette 'api_response_ride_search_fail' do
+      user = create(:user)
+
+      visit '/'
+
+      fill_in 'f_elem_city', :with => "asd, pr"
+      fill_in 'f_elem_city_2', :with => "fasdresno, ca"
+      fill_in 'date', :with => "2018-04-22"
+
+      click_button 'Geda Ride'
+
+      expect(page).to have_content(" We couldn't find any places matching that location ")
+
     end
   end
 
