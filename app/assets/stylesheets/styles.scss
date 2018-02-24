@@ -67,6 +67,11 @@ HTML5 display definitions
   flex-direction: row;
   justify-content: space-around;
 }
+.user-show-tables{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .logo img {
   width:100px;
 }
@@ -77,7 +82,7 @@ HTML5 display definitions
 
 #ride-list tr th, #ride-list tr{
   width: 200px;
-  font-size: 20px;
+  font-size: 14px;
   text-align:left;
   border-bottom: 1px solid black;
 }

@@ -1,7 +1,8 @@
-  <% content_for :top do %>
-    <%= render :partial => "layouts/header" %>
-    <%= render :partial => "layouts/logo" %>
-  <% end %>
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
+
 <% content_for :bottom  do %>
   <div class = "user-show">
     <div id= "col-md-1 user_show">
@@ -9,11 +10,13 @@
       <div class = "user-image">
         <%= image_tag @user.image.url if @user.image.url %>
       </div>
-      <% if @user == current_user %>
+    <% if @user == current_user %>
         <h3><%= link_to 'Edit your profile', edit_user_path(current_user) %></h3>
         <h3><%= link_to 'Your Messages', conversations_path %></h3>
     </div>
+    <div class = "user-show-tables">
         <div class=" col-md-2 user-rides">
+          <% if @requests.count > 0 %>
           <h3>Requests</h3>
             <table  class = "table table-striped" id= 'ride-list' >
                 <tr>
@@ -23,43 +26,43 @@
                   <th >Date</th>
                 </tr>
                 <tr >
-
                   <% @requests.each do |request| %>
-                  <td><%= link_to "View", ride_path(request.ride_id) %>
-                  <td><%= link_to "#{User.find(request.user_id).name}", user_path(request.user_id)%>
-                    <%= form_tag(ride_path(request.ride_id), method: :patch) do %>
-                    <%= hidden_field_tag  "passenger", request.user_id %>
-                    <%= hidden_field_tag  "passenger_count", request.passenger_count %>
-                    <%= hidden_field_tag  "status", "approved" %>
-                    <%= hidden_field_tag  "request_id", request.id %>
-                  <td><%= submit_tag "Approve" %>
-                    <% end %>
+                    <td><%= link_to "View", ride_path(request.ride_id) %>
+                    <td><%= link_to "#{User.find(request.user_id).name}", user_path(request.user_id)%>
+                      <%= form_tag(ride_path(request.ride_id), method: :patch) do %>
+                      <%= hidden_field_tag  "passenger", request.user_id %>
+                      <%= hidden_field_tag  "passenger_count", request.passenger_count %>
+                      <%= hidden_field_tag  "status", "approved" %>
+                      <%= hidden_field_tag  "request_id", request.id %>
+                    <td><%= submit_tag "Approve" %>
+                  <% end %>
                 </tr>
-                <% end %>
+          <% end %>
             </table>
         </div>
-        <div class=" col-md-2 user-rides">
+          <% end %>
           <h3>Your rides</h3>
         <% else %>
-        <div class="col-md-4 user-rides">
           <h1>Rides offered by <%= "#{@user.name}" %> </h1>
       <% end %>
-      <table  class = "table table-striped" id= 'ride-list' >
-          <tr>
-            <th >Ride</th>
-            <th >Origin</th>
-            <th >Destination</th>
-            <th >Date</th>
-          </tr>
-            <% @user.rides.each do |ride| %>
-            <tr >
-              <td><%= link_to "View", ride_path(ride) %>
-              <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
-              <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
-              <td><%= ride.date%></td>
-            </tr>
-            <% end %>
-      </table>
-    </div>
+        <div class="col-md-4 user-rides">
+          <table  class = "table table-striped" id= 'ride-list' >
+              <tr>
+                <th >Ride</th>
+                <th >Origin</th>
+                <th >Destination</th>
+                <th >Date</th>
+              </tr>
+                <% @user.rides.each do |ride| %>
+                <tr >
+                  <td><%= link_to "View", ride_path(ride) %>
+                  <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
+                  <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
+                  <td><%= ride.date%></td>
+                </tr>
+                <% end %>
+          </table>
+        </div>
+      </div>
     <% end %>
-</div>
+  </div>
