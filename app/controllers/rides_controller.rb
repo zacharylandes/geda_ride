@@ -7,6 +7,7 @@ class RidesController < ApplicationController
 
   def create
     ride = RideService.new.create_ride(ride_params,current_user)
+    flash[:notice] = 'Ride Created!'
     redirect_to ride_path(ride)
   end
 
@@ -16,9 +17,11 @@ class RidesController < ApplicationController
 
   def update
     ride = Ride.find(params[:id])
+    request = Request.find(params['request_id'])
     if ride.update(update_params)
       flash[:notice] = 'Request Approved'
-      Request.find(params['request_id']).delete
+      approval_message(request,ride)
+      request.delete
       redirect_to user_path(current_user)
     end
   end

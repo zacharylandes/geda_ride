@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   def create
     request = Request.create(request_params)
+    flash[:notice] = "Ride Requested!"
     redirect_to ride_path(params['ride_id'])
   end
 

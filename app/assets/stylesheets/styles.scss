@@ -92,9 +92,7 @@ HTML5 display definitions
 #image-icon img{
   width: 50px;
 }
- /* .header-scroll{
-  top:0;
- } */
+
 .form_citydetails{
   z-index: 1;
 
@@ -113,14 +111,12 @@ HTML5 display definitions
 .hero-move{
   margin-top:1000px;
 }
-#input{
 
-}
 .col-md-offset-3{
   display: flex;
   justify-content:space-around;
 }
-/* * Corrects `block` display not defined in IE 6/7/8/9 and Firefox 3. */
+
 .car-draw{
   width:100px;
 }

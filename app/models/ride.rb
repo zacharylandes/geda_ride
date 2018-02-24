@@ -16,4 +16,7 @@ class Ride < ApplicationRecord
     end
   end
 
+  def self.cost(distance)
+    (distance/24) * 2.50
+  end
 end

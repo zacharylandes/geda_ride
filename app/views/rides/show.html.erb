@@ -21,9 +21,12 @@
       <div id="directions-panel">
         <%= @ride.route %>
       </div>
+        <%= form_tag 'cost', id:"cost"  %>
       <div id="message-user">
+        <% if @ride.user != current_user %>
         <p><%= link_to "Message User", new_conversation_path(recipient: @ride.user) %></p>
         <p><%= link_to "Request this ride",nil, class:'request' %></p>
+        <% end %>
       </div>
       <div class = 'request-form'>
         <% if current_user %>
