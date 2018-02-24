@@ -1,16 +1,6 @@
 class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  # def index
-  #   rides = RideService.new.find_ride(params['origin'], params['destination'], params['date'])
-  #   if rides.class == Hash
-  #     render :no_match
-  #   else
-  #     binding.pry
-  #     @rides = rides
-  #   end
-
-
   def new
     @ride = Ride.new
   end
@@ -24,10 +14,29 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
   end
 
+  def update
+    ride = Ride.find(params[:id])
+    if ride.update(update_params)
+      flash[:notice] = 'Request Approved'
+      Request.find(params['request_id']).delete
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def edit
+    @ride = Ride.find(params[:id])
+    @requester = current_user
+  end
+
+
   private
 
   def ride_params
     params.require(:ride).permit(:origin, :destination, :date)
+  end
+
+  def update_params
+    params.permit(:passenger, :passenger_count, :status)
   end
 
 end

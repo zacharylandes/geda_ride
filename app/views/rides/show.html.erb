@@ -8,7 +8,7 @@
     <div class = 'ride-show'>
       <h3>Offered by</h3>
       <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
-      <p><%= link_to image_tag(asset_path( @ride.user.image.url)), user_path(@ride.user)  %></p>
+      <p><%= link_to (image_tag @ride.user.image.url if @ride.user.image.url), user_path(@ride.user)  %></p>
       <h3>Starting</h3>
       <%=content_tag(:p, @ride.origin.full_street_address, id: "start")%>
       <h3>Ending</h3>
@@ -22,7 +22,21 @@
         <%= @ride.route %>
       </div>
       <div id="message-user">
-        <%= link_to "Message User", new_conversation_path(recipient: @ride.user) %>
+        <p><%= link_to "Message User", new_conversation_path(recipient: @ride.user) %></p>
+        <p><%= link_to "Request this ride",nil, class:'request' %></p>
+      </div>
+      <div class = 'request-form'>
+        <% if current_user %>
+          <%= form_tag requests_path do  %>
+            <h4>How many passengers?</h4>
+            <p><%= select_tag :passenger_count, options_for_select([1,2,3],1), class: 'form-control' %></p>
+            <%= hidden_field_tag "ride_id", @ride.id %>
+            <%= hidden_field_tag "user_id", current_user.id if current_user%>
+            <%= submit_tag "Request Ride"%>
+          <% end %>
+        <% else %>
+          <h4>Please <%= link_to 'Sign In', "/auth/google_oauth2" %> to request a ride </h4>
+        <% end %>
       </div>
     </div>
     <div id="map">

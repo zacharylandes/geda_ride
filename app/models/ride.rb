@@ -2,7 +2,9 @@ class Ride < ApplicationRecord
   has_one :origin
   has_one :destination
   belongs_to :user
+  has_many :requests
 
+  enum status: %w(pending approved)
 
   def route
     response = Faraday.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{self.origin.latitude},#{self.origin.longitude}&destinations=#{self.destination.latitude},#{self.destination.longitude}&key=#{ENV['gmaps_key']}")

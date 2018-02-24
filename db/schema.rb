@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223235616) do
+ActiveRecord::Schema.define(version: 20180224182147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 20180223235616) do
     t.index ["ride_id"], name: "index_origins_on_ride_id"
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.bigint "ride_id"
+    t.bigint "user_id"
+    t.integer "passenger_count"
+    t.index ["ride_id"], name: "index_requests_on_ride_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string "timestamps"
     t.datetime "created_at", null: false
@@ -115,6 +123,8 @@ ActiveRecord::Schema.define(version: 20180223235616) do
     t.date "date"
     t.integer "passenger"
     t.integer "capacity", default: 3
+    t.integer "status"
+    t.integer "passenger_count"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
@@ -135,5 +145,7 @@ ActiveRecord::Schema.define(version: 20180223235616) do
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "origins", "rides"
+  add_foreign_key "requests", "rides"
+  add_foreign_key "requests", "users"
   add_foreign_key "rides", "users"
 end

@@ -12,11 +12,34 @@
       <% if @user == current_user %>
         <h3><%= link_to 'Edit your profile', edit_user_path(current_user) %></h3>
         <h3><%= link_to 'Your Messages', conversations_path %></h3>
-      <% end %>
     </div>
-      <% if @user == current_user %>
-        <div class=" col-md-4 user-rides">
-          <h1>Your rides</h1>
+        <div class=" col-md-2 user-rides">
+          <h3>Requests</h3>
+            <table  class = "table table-striped" id= 'ride-list' >
+                <tr>
+                  <th >Ride</th>
+                  <th >Requester</th>
+                  <th >Approve</th>
+                  <th >Date</th>
+                </tr>
+                <tr >
+
+                  <% @requests.each do |request| %>
+                  <td><%= link_to "View", ride_path(request.ride_id) %>
+                  <td><%= link_to "#{User.find(request.user_id).name}", user_path(request.user_id)%>
+                    <%= form_tag(ride_path(request.ride_id), method: :patch) do %>
+                    <%= hidden_field_tag  "passenger", request.user_id %>
+                    <%= hidden_field_tag  "passenger_count", request.passenger_count %>
+                    <%= hidden_field_tag  "status", "approved" %>
+                    <%= hidden_field_tag  "request_id", request.id %>
+                  <td><%= submit_tag "Approve" %>
+                    <% end %>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+        <div class=" col-md-2 user-rides">
+          <h3>Your rides</h3>
         <% else %>
         <div class="col-md-4 user-rides">
           <h1>Rides offered by <%= "#{@user.name}" %> </h1>

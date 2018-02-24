@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @requests = Request.where(ride_id: Ride.where(user_id:current_user))
     @user = User.find(params[:id])
   end
 
@@ -31,10 +32,11 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
   private
 
-    def user_params
-          params.require(:user).permit(:name, :image)
-    end
+  def user_params
+        params.require(:user).permit(:name, :image)
+  end
 
 end

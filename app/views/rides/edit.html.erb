@@ -1,0 +1,15 @@
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
+
+<% content_for :bottom do %>
+ <h3><%=@requester.name %> </h3>is requesting a ride from
+  <p><%= @ride.user.name %></p>
+  <p><%= @ride.date %></p> 
+
+    <%= form_for @ride do |f| %>
+    <p><%= f.select :passenger, options_for_select( [1,2,3],1), class: 'form-control' %></p>
+    <%= f.submit "Request Ride"%>
+    <% end %>
+<% end %>

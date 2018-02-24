@@ -3,6 +3,10 @@
 
 $(document).ready(function() {
 
+$('.request').click(function(event){
+  event.preventDefault()
+  $('.request-form').addClass('request-show')
+});
 jQuery(function ()
  {
 	 jQuery("#f_elem_city_2").autocomplete({

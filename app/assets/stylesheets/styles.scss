@@ -15,6 +15,12 @@ HTML5 display definitions
   flex-direction: column;
   width: 20%;
 }
+.request-form{
+  display: none
+}
+.request-show{
+  display: inline-block;
+}
 #new_ride_form input{
   height: 30px;
   margin: 20px 0;
