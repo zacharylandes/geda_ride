@@ -21,7 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
-
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'mailboxer'
