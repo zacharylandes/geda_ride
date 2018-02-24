@@ -26,13 +26,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       var cost = document.getElementById('cost');
       summaryPanel.innerHTML = '';
       cost.innerHTML = '';
+
       for (var i = 0; i < route.legs.length; i++) {
+        var ride = document.getElementById('ride_id').innerHTML;
         var routeSegment = i + 1;
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-        cost.innerHTML += route.legs[i].distance.text
-      }
+
+        $(document).ready(function(){
+              $.ajax({
+                url : "/rides/"+ parseInt(ride),
+                type : "put",
+                data : route.legs[i].distance
+            });
+        });
+        }
     } else {
       window.alert('Directions request failed due to ' + status);
     }

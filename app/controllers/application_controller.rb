@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :not_found, :approval_message, :auth_sender
+  helper_method :current_user, :not_found, :approval_message, :auth_sender, :cost
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -15,4 +15,7 @@ class ApplicationController < ActionController::Base
     auto_sender.send_message(User.find(request.user_id), message[0],message[1])
   end
 
+  def cost(distance)
+    (distance/24) * 2.50
+  end
 end
