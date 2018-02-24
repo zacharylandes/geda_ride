@@ -5,13 +5,15 @@
 <% content_for :bottom do  %>
   <h1>Rides ending in: <%= @destinations.first.full_street_address %></h1>
   <table class = "table table-striped" id= 'ride-list'>
-      <tr>
+    <tr>
+        <th>View</th>
         <th>Offered By</th>
         <th>Origin</th>
         <th>Date</th>
       </tr>
   <% @destinations.each do |destination| %>
   <tr>
+    <td><%= link_to "View", ride_path(destination.ride) %></td>
     <td><%= link_to destination.ride.user.name, user_path(destination.ride.user) %></td>
     <td><%= link_to destination.ride.origin.full_street_address, destinations_path(destination.ride.origin) %></td>
     <td><%= destination.ride.date%></td>

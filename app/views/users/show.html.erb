@@ -3,9 +3,8 @@
     <%= render :partial => "layouts/logo" %>
   <% end %>
 <% content_for :bottom  do %>
-
   <div class = "user-show">
-    <div id="user_show">
+    <div id= "col-md-1 user_show">
       <h1><%= @user.name %></h1>
       <div class = "user-image">
         <%= image_tag @user.image.url if @user.image.url %>
@@ -16,11 +15,11 @@
       <% end %>
     </div>
       <% if @user == current_user %>
-        <div class="user-rides">
+        <div class=" col-md-4 user-rides">
           <h1>Your rides</h1>
         <% else %>
-        <div class="user-rides">
-          <h1>Rides offered by this user</h1>
+        <div class="col-md-4 user-rides">
+          <h1>Rides offered by <%= "#{@user.name}" %> </h1>
       <% end %>
       <table  class = "table table-striped" id= 'ride-list' >
           <tr>

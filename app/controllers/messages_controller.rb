@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
       end
       redirect_to conversations_path
     end
+
   private
 
     def set_conversation

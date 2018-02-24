@@ -1,18 +1,22 @@
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
+
   <% content_for :bottom do  %>
-  <h1>New Conversations</h1>
-  <%= form_tag conversations_path, method: :post do %>
-      <div>
-          <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :name) %>
-      </div>
-
-      <div>
-       <%= text_field_tag :subject, nil, placeholder: "Subject" %>
-      </div>
-
-      <div>
-       <%= text_area_tag :body, nil, placeholder: "Leave a comment" %>
-      </div>
-
-      <%= submit_tag 'Send Message' %>
+    <h1>New Conversations</h1>
+      <div class = "new-convo">
+      <%= form_tag conversations_path(@recipient), method: :post do %>
+          <div class = "message-input">
+            <%= @recipient.name %>
+          </div>
+          <div class = "message-input">
+           <%= text_field_tag :subject, nil, placeholder: "Subject" %>
+          </div>
+          <div class = "message-input">
+           <%= text_area_tag :body, nil, placeholder: "Leave a comment" %>
+          </div>
+          <%= submit_tag 'Send Message' %>
+      <% end %>
   <% end %>
-  <% end %>
+</div>

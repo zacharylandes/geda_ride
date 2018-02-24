@@ -7,38 +7,42 @@ HTML5 display definitions
   width:400px;
   height:400px;
 }
-  #inner{
-    margin-top:100px;
-  }
-  #new_ride_form{
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-  }
-  #new_ride_form input{
-    height: 30px;
-    margin: 20px 0;
-  }
-  .message-body {
-    display:block;
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-    padding:10px;
-    border: 2px solid grey;
-    margin: 20px 0px;
-   }
+#inner{
+  margin-top:100px;
+}
+#new_ride_form{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+#new_ride_form input{
+  height: 30px;
+  margin: 20px 0;
+}
+.message-body {
+  display:block;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  padding:10px;
+  border: 2px solid grey;
+  margin: 20px 0px;
+ }
 
-  .convo-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .ride-show-container{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.convo-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.ride-show-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.message-input{
+  margin:20px;
+}
   #ride{
     text-shadow: 1px 1px  black;
   }
@@ -55,7 +59,7 @@ HTML5 display definitions
 .user-show{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .logo img {
   width:100px;
@@ -63,8 +67,8 @@ HTML5 display definitions
 
 #user_show{
   background-color: rgba(246,248,250,0.5);
-
 }
+
 #ride-list tr th, #ride-list tr{
   width: 200px;
   font-size: 20px;
@@ -134,7 +138,7 @@ html, html a { -webkit-font-smoothing: antialiased; text-shadow: 1px 1px 1px rgb
 * elements. */
 html, button, input, select, textarea { font-family: 'Varela Round', sans-serif; }
 /* * Addresses margins handled incorrectly in IE 6/7. */
-body { margin: 0; font-family: 'Varela Round', sans-serif; }
+body { margin: 0; font-family: 'Montserrat', monospace; }
 /* ==========================================================================
 Links
 ========================================================================== */

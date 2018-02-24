@@ -13,10 +13,10 @@ describe 'messages' do
       click_on "Your Messages"
 
       expect(current_path).to eq(conversations_path)
-
-      click_on "New Message"
-
-      expect(current_path).to eq(new_conversation_path)
+      # 
+      # click_on "New Message"
+      #
+      # expect(current_path).to eq(new_conversation_path)
 
   end
 
