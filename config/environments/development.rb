@@ -48,6 +48,8 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 30.minutes }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

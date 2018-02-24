@@ -9,7 +9,9 @@ class RideService
 
    def origin_finder(origin)
     begin
+        # Rails.cache.fetch(:origin){
       origin = Origin.within(15, :origin=> origin)
+    # }
     rescue Geokit::Geocoders::GeocodeError
       return  false
     end
@@ -18,7 +20,9 @@ class RideService
 
   def dest_finder(destination)
     begin
+    # Rails.cache.fetch(:destination){
       dests = Destination.within(15, :origin=> destination)
+    # }
     rescue Geokit::Geocoders::GeocodeError
       return false
     end

@@ -8,7 +8,7 @@
     <div class = 'ride-show'>
       <h3>Offered by</h3>
       <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
-      <p><%= link_to (image_tag @ride.user.image.url if @ride.user.image.url), user_path(@ride.user)  %></p>
+      <p><%= link_to image_tag(asset_path( @ride.user.image.url)), user_path(@ride.user)  %></p>
       <h3>Starting</h3>
       <%=content_tag(:p, @ride.origin.full_street_address, id: "start")%>
       <h3>Ending</h3>

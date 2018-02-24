@@ -9,6 +9,7 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'pry'
 gem 'faker'
 gem 'faraday'
+gem 'redis-rails'
 gem 'figaro'
 gem 'geokit-rails'
 gem 'geocoder'
@@ -26,7 +27,6 @@ gem 'mini_magick', '~> 4.3'
 gem 'mailboxer'
 gem 'will_paginate', '~> 3.1.0'
 gem 'render_anywhere', :require => false
-gem 'redis-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7'
