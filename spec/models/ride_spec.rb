@@ -4,5 +4,4 @@ it { should have_one(:origin) }
 it { should have_one(:destination) }
 it { should belong_to(:user) }
 
-
 end
