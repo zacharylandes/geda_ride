@@ -2,14 +2,18 @@
   <%= render :partial => "layouts/header" %>
   <%= render :partial => "layouts/logo" %>
 <% end %>
-
 <% content_for :bottom  do %>
   <div class = "user-show">
-    <div id= "col-md-2 user_show">
-      <h1><%= @user.name %></h1>
+    <div id= " user_show" class = "col-md-4">
       <div class = "user-image">
+        <h1><%= @user.name %></h1>
         <%= image_tag @user.image.url if @user.image.url %>
       </div>
+      <div class = "ratings-container">
+        <h3>Reviews</h3>
+        <div class="star-ratings-sprite"><span style= "width:<%= @user.score%>%" class="star-ratings-sprite-rating"></span></div>
+      </div>
+    </div>
     <% if @user == current_user %>
       <h3><%= link_to 'Edit your profile', edit_user_path(current_user) %></h3>
       <h3><%= link_to 'Your Messages', conversations_path %></h3>
@@ -23,7 +27,8 @@
         <div class="col-md-8 user-rides">
           <h3>Rides you are offering</h3>
     <% else %>
-          <h1>Rides offered by <%= "#{@user.name}" %> </h1>
+        <div class="col-md-8 user-rides">
+        <h3>Rides offered by <%= "#{@user.name}" %> </h3>
     <% end %>
         <%= render partial: 'rides_offered' %>
         </div>
