@@ -1,0 +1,16 @@
+        <table  class = "table table-striped" id= 'ride-list' >
+            <tr>
+              <th >Ride</th>
+              <th >Origin</th>
+              <th >Destination</th>
+              <th >Date</th>
+            </tr>
+              <% @user.rides.each do |ride| %>
+              <tr >
+                <td><%= link_to "View", ride_path(ride) %>
+                <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
+                <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
+                <td><%= ride.date%></td>
+              </tr>
+              <% end %>
+        </table>

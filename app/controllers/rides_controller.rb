@@ -16,26 +16,25 @@ class RidesController < ApplicationController
   end
 
   def update
-    distance = params['text'].gsub(/[^0-9]/, '').to_i
-    cost = cost(distance)
     ride = Ride.find(params[:id])
-    request = Request.find(params['request_id'])
-     ride.update(cost: cost)
-     binding.pry
-    if update_params
-       ride.update(update_params)
-        flash[:notice] = 'Request Approved'
-        approval_message(request,ride)
-        request.delete
-        redirect_to user_path(current_user)
-      end
+    if params['text']
+      distance = params['text'].gsub(/[^0-9]/, '').to_i
+      cost = cost(distance)
+      ride.update(cost: cost)
+    elsif update_params
+      request = Request.find(params['request_id'])
+      ride.update(update_params)
+      flash[:notice] = 'Request Approved'
+      approval_message(request,ride)
+      request.delete
+      redirect_to user_path(current_user)
+    end
   end
 
   def edit
     @ride = Ride.find(params[:id])
     @requester = current_user
   end
-
 
   private
 

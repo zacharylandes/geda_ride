@@ -15,6 +15,12 @@ HTML5 display definitions
   flex-direction: column;
   width: 20%;
 }
+.ride-show-container h3{
+  text-decoration: underline;
+}
+#ride_id{
+  display:none;
+}
 .request-form{
   display: none
 }
@@ -61,6 +67,10 @@ HTML5 display definitions
 }
 #row a{
   color:white
+}
+.user-ride-list-container{
+  display: flex;
+  flex-direction: column;
 }
 .user-show{
   display: flex;

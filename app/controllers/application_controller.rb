@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :not_found, :approval_message, :auth_sender, :cost
+  helper_method :current_user,
+                :not_found,
+                :approval_message,
+                :auth_sender,
+                :cost,
+                :message_tamplate
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -18,4 +23,5 @@ class ApplicationController < ActionController::Base
   def cost(distance)
     (distance/24) * 2.50
   end
+
 end

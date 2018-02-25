@@ -26,7 +26,7 @@ class RequestService
   # end
 
   def self.request_approval_message(request, ride)
-    [ "You requested ride with#{ride.user.name} on #{ride.date} has been approved!", "Your ride has been accepted!" ]
+    ["You requested ride with #{ride.user.name} on #{ride.date} has been approved!", "Your ride has been accepted!" ]
   end
 
 

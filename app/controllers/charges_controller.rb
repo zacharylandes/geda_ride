@@ -1,12 +1,12 @@
 class ChargesController < ApplicationController
+
   def new
+    @ride = Ride.find(params['ride'])
   end
 
   def create
-    binding.pry
-    # Amount in cents
-    @amount = 500
-
+    ride = Ride.find(params['ride'])
+    amount = ride.cost
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -14,11 +14,15 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => (amount *100).to_i,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
 
+    flash[:notice] = "Ride Succesfully Purchased"
+    redirect_to user_path(current_user)
+
+    ride.update(pay_status:true)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
