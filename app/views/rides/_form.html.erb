@@ -5,14 +5,14 @@
 
 <% content_for :bottom do %>
   <%= form_for @ride do |f| %>
-  <div id="new_ride_form">
-      <%= f.label :date %>
-      <%= f.date_field :date, class:'input-search'%>
-      <%= f.label :origin %>
-      <%= f.text_field :origin, class:'input-search', id:'start'%>
-      <%= f.label :destination %>
-      <%= f.text_field :destination,  class:'input-search',id:'end'%>
-      <%= f.submit "Make a Ride", class: "btn btn-md" %>
-  </div>
-    <% end %>
+    <div id="new_ride_form">
+        <%= f.label :date %>
+        <%= f.date_field :date, class:'input-search'%>
+        <%= f.label :origin %>
+        <%= f.text_field :origin, class:'input-search', id:'start'%>
+        <%= f.label :destination %>
+        <%= f.text_field :destination,  class:'input-search',id:'end'%>
+        <%= f.submit "Make a Ride", class: "btn btn-md" %>
+    </div>
+  <% end %>
 <% end %>

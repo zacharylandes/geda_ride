@@ -43,9 +43,11 @@ HTML5 display definitions
   height: 30px;
   margin: 20px 0;
 }
+
 .input-search{
 background-color: white;
 color: $onyx;
+font-size:13px;
 border-radius: 6px;
 border: 1px solid $onyx;
 }
@@ -219,7 +221,6 @@ html { font-size: 100%; /* 1 */
 html, html a { -webkit-font-smoothing: antialiased; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); }
 /* * Addresses `font-family` inconsistency between `textarea` and other form
 * elements. */
-html, button, input, select, textarea { font-family: 'Varela Round', sans-serif; }
 /* * Addresses margins handled incorrectly in IE 6/7. */
 body { margin: 0; font-family: 'Montserrat', monospace; }
 /* ==========================================================================

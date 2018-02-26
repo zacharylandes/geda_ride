@@ -12,7 +12,7 @@ describe 'user edit page' do
     expect(current_path).to eq(user_path(user))
     click_on 'Edit your profile'
     page.attach_file('user[image]', Rails.root + 'app/assets/images/car-draw.png')
-    click_on 'Submit'
+    click_on 'Update'
 
     expect(current_path).to eq(user_path(user))
     expect(user.image).to be_truthy
