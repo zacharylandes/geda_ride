@@ -4,12 +4,16 @@
 <% end %>
 <% content_for :bottom do  %>
   <div class = 'ride-show-container'>
-    <div class = 'ride-show'>
-      <h3>Offered by</h3>
-      <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
-      <p><%= link_to (image_tag @ride.user.image.url if @ride.user.image.url), user_path(@ride.user)  %></p>
-      <p class="star-ratings-sprite"><span style= "width:<%= @ride.user.score%>%" class="star-ratings-sprite-rating"></span></p>
-
+    <div  id= " user_show" class = "col-md-4">
+      <div class = "user-image">
+        <h3>Offered by</h3>
+        <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
+        <p><%= link_to (image_tag @ride.user.image.url if @ride.user.image.url), user_path(@ride.user)  %></p>
+      </div>
+      <div class = "ratings-container">
+        <h3>User Score</h3>
+        <div class="star-ratings-sprite"><span style= "width:<%=  Random.rand(30..100)%>%" class="star-ratings-sprite-rating"></span></div>
+      </div>
     </div>
     <div class = 'ride-show'>
       <h3>Starting</h3>
@@ -28,8 +32,8 @@
           <%= content_tag :ride,@ride.id, id:'ride_id' %>
       <div id="message-user">
         <% if @ride.user != current_user %>
-          <p><%= link_to "Message User", new_conversation_path(recipient: @ride.user), id: 'message-user' %></p>
-          <p><%= link_to "Request this ride",nil, class:'request' %></p>
+        <h3><%= link_to "Message User", new_conversation_path(recipient: @ride.user), id: 'message-user' %></h3>
+        <h3><%= link_to "Request this ride",nil, class:'request' %></h3>
         <% end %>
       </div>
       <div class = 'request-form'>
@@ -49,4 +53,5 @@
     <div id="map">
     </div>
   </div>
+
 <% end %>

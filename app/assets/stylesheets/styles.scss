@@ -4,8 +4,8 @@
 HTML5 display definitions
 ========================================================================== */
 #map{
-  width:400px;
-  height:400px;
+  width:300px;
+  height:300px;
 }
 #inner{
   margin-top:100px;
@@ -21,11 +21,18 @@ HTML5 display definitions
 #ride_id{
   display:none;
 }
+#review h5{
+  text-decoration: underline;
+}
+.request{
+  text-decoration: underline;
+}
 .request-form{
   display: none
 }
 .request-show{
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
 #new_ride_form input{
   height: 30px;
@@ -83,7 +90,16 @@ HTML5 display definitions
   justify-content: space-around;
 }
 .logo img {
-  width:100px;
+  width:80px;
+}
+.tops{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+  .mountain img{
+  width: 50px;
+  margin-left:20px;
 }
 
 #user_show{
@@ -286,7 +302,7 @@ button, input, select, textarea { font-size: 100%; /* 1 */
 *vertical-align: middle; /* 3 */ }
 /* * Addresses Firefox 3+ setting `line-height` on `input` using ` !important` in
 * the UA stylesheet. */
-button, input { line-height: normal; }
+button, input { line-height: normal; background-color: #343839; color: #ccc;}
 /* * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
 *    and `video` controls.
 * 2. Corrects inability to style clickable `input` types in iOS.
@@ -327,6 +343,9 @@ vertical-align: top; /* 2 */ }
 Tables
 ========================================================================== */
 /* * Remove most spacing between table cells. */
+  td{
+    border-bottom:1px solid black;
+  }
 /* table {
   display:grid;
         border-spacing: 0;
@@ -348,12 +367,12 @@ Tables
 /* ==========================================================================
 Global Styles
 ========================================================================== */
-a { color: #353535; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
+a { color: black; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
 a:hover, a:focus { color: #3dc9b3; text-decoration: none; }
 p { color: #8c9398; word-spacing: 1px; line-height: 25px; font-size: 14px; }
 h2 { font-size: 15px; color: #353535; text-transform: uppercase; font-weight: bold; }
 h2::after { content: " "; border: solid 2px #3dc9b3; display: block; width: 35px; margin: 25px auto; }
-.section-padding { padding: 90px 0 100px }
+.section-padding { padding: 90px 0 100px; background-color: #E8E8E8}
 .dark-bg { background: #f3f5f8; }
 .light-bg { background-color: #fff; }
 .dark-box { background: #f3f5f8; -webkit-box-shadow: 0px 3px 0px 0px #f0f2f4; -moz-box-shadow: 0px 3px 0px 0px #f0f2f4; box-shadow: 0px 3px 0px 0px #f0f2f4; }
@@ -389,7 +408,7 @@ nav ul li a:hover, nav ul li a:focus { text-decoration: none; color: rgba(255, 2
 /* ==========================================================================
 Hero
 ========================================================================== */
-  .hero, #hero { background: image-url('euro.jpg') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 40px 0 100px 0; height: auto; }
+  .hero, #hero { background: image-url('euro.jpg') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 40px 0 30px 0; height: auto; }
 .hero h1 { font-size: 40px; letter-spacing: 12px; margin: 10px; }
 .hero h1 span { color: white; display: inline-block; }
 .hero p { letter-spacing: 1px; color:white }

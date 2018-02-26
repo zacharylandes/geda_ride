@@ -18,7 +18,8 @@ class UsersController < ApplicationController
   def show
     @requests = Request.where(ride_id: Ride.where(user_id:current_user))
     @user = User.find(params[:id])
-    @accepted = Ride.where(passenger:current_user.id)
+     accepted = Ride.where(passenger:current_user.id)
+    @accepted =  accepted if !accepted.nil?
   end
 
   def edit

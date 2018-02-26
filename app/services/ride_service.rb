@@ -51,10 +51,10 @@ class RideService
 
   def no_match(origins,dests,dates)
     no_match = {}
-    if origins.any?
-      no_match['origins'] = origins
-    elsif dests.any?
+    if dests.any?
       no_match['dests'] = dests
+    elsif origins.any?
+      no_match['origins'] = origins
     elsif dates.any?
       no_match['dates'] = dates
     end
@@ -67,4 +67,7 @@ class RideService
     end
   end
 
+  def reviews
+    ["#{Faker::MostInterestingManInTheWorld.quote}","#{Faker::Seinfeld.character}" ]
+  end
 end

@@ -1,7 +1,7 @@
 <%= render :partial => 'layouts/search' %>
-  <% if params['origin'] %>
+<% if params['origin'] %>
   <% content_for :bottom do  %>
-    <table  class = "table table-striped" id= 'ride-list' >
+    <table  class = "table " id= 'ride-list' >
         <tr>
           <th >Ride</th>
           <th >Origin</th>
@@ -15,9 +15,32 @@
             <td><%= link_to ride.origin.full_street_address, origins_path( ride.origin) %></td>
             <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
             <td><%= ride.date%></td>
-            <td id= "image-icon"><%= image_tag ride.user.image.url if ride.user.image.url%></td>
+            <td id="image-icon"><%= link_to (image_tag ride.user.image.url if ride.user.image.url), user_path(ride.user), id:'avatar-image'  %></p>
           </tr>
           <% end %>
     </table>
   <% end %>
+<% else  %>
+  <% content_for :bottom do  %>
+    <h1>Trending  Car Shares... </h1>
+    <table  class = "table " id= 'ride-list' >
+        <tr>
+          <th >Ride</th>
+          <th >Origin</th>
+          <th >Destination</th>
+          <th >Date</th>
+          <th >Driver</th>
+        </tr>
+          <% @trending.each do |ride| %>
+          <tr >
+            <td><%= link_to "View", ride_path(ride) %>
+            <td><%= link_to ride.origin.full_street_address, origins_path( ride.origin) %></td>
+            <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
+            <td><%= ride.date%></td>
+            <td id="image-icon"><%= link_to (image_tag ride.user.image.url if ride.user.image.url), user_path(ride.user)  %></p>
+          </tr>
+          <% end %>
+    </table>
+  <% end %>
+
 <% end %>
