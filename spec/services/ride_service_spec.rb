@@ -54,7 +54,7 @@ describe 'ride service' do
     ride = create(:ride, user:user, date: '2018-03-14')
     origin = Origin.create!(full_street_address:"Boulder, Co", ride:ride)
     destination = Destination.create!(full_street_address:"Denver, Co", ride:ride)
-    result = RideService.new.find_ride("Davis, CA", "Denver, Co", "2018-03-14" )
+    result = RideService.new.find_ride("Davis, CA", "Denver, Co", "2018-02-14" )
 
     expect(result.class).to eq Hash
     expect(result.keys.first).to eq("dests")
