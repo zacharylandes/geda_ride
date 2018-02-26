@@ -6,7 +6,7 @@ RSpec.describe Ride, type: :model do
 
   it 'cost' do
     cost= Ride.cost(1030)
-    expect(cost).to eq(20)
+    expect(cost).to eq(105.0)
   end
 
 end
