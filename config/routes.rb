@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :rides
   resources :users
   resources :requests, only: [:create]
-resources :conversations do
-  resources :messages
- end
+  resources :conversations do
+    resources :messages
+   end
  resources :charges
 
 end

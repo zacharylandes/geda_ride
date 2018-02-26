@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20180225210906) do
     t.date "date"
     t.integer "passenger"
     t.integer "capacity", default: 3
-    t.integer "status"
+    t.integer "status", default: 3
     t.integer "passenger_count"
     t.float "cost"
     t.boolean "pay_status"

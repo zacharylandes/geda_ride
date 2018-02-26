@@ -30,12 +30,12 @@
           <div id="directions-panel">
           </div>
           <%= content_tag :ride,@ride.id, id:'ride_id' %>
-      <div id="message-user">
-        <% if @ride.user != current_user %>
-        <h3><%= link_to "Message User", new_conversation_path(recipient: @ride.user), id: 'message-user' %></h3>
-        <h3><%= link_to "Request this ride",nil, class:'request' %></h3>
-        <% end %>
-      </div>
+        <div id="message-user">
+          <% if @ride.user != current_user %>
+          <h3><%= link_to "Message User", new_conversation_path(recipient: @ride.user), id: 'message-user' %></h3>
+          <h3><%= link_to "Request this ride",nil, class:'request' %></h3>
+          <% end %>
+        </div>
       <div class = 'request-form'>
         <% if current_user %>
           <%= form_tag requests_path do  %>
