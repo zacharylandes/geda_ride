@@ -18,7 +18,9 @@
         <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
         <td><%= link_to ride.destination.full_street_address, destinations_path(ride.destination) %></td>
         <td><%=ride.date%></td>
-        <td id= "image-icon"><%= image_tag ride.user.image.url if ride.user.image.url%></td>
+        <% if ride.user.image.url %>
+          <td id= "image-icon"><%= image_tag ride.user.image.url%></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
