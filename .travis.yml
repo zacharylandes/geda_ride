@@ -1,9 +1,13 @@
 language: ruby
 rvm:
- - 2.2
- - jruby
- - rbx-3
+ - 2.4.1
+
+before_script:
+  -bundle exec rake db:create --all
+  -bundle exec rake db:migrate
+script:
+  -bundle exec rspec
 services:
   - postgresql
-before_script:
-  - psql -c 'create database Gedaride_test;' -U postgres
+notifications:
+  email: false
