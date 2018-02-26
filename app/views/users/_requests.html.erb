@@ -1,0 +1,23 @@
+<div class=" col-md-12 user-rides">
+  <h3> Pending Requests...</h3>
+    <table  class = "table " id= 'ride-list' >
+        <tr>
+          <th >Ride</th>
+          <th >Requester</th>
+          <th >Approve</th>
+        </tr>
+        <tr >
+          <% @requests.each do |request| %>
+            <td><%= link_to "View", ride_path(request.ride_id) %>
+            <td><%= link_to "#{User.find(request.user_id).name}", user_path(request.user_id)%>
+              <%= form_tag(ride_path(request.ride_id), method: :patch) do %>
+                <%= hidden_field_tag  "passenger", request.user_id %>
+                <%= hidden_field_tag  "passenger_count", request.passenger_count %>
+                <%= hidden_field_tag  "status", "approved" %>
+                <%= hidden_field_tag  "request_id", request.id %>
+            <td><%= submit_tag "Approve" %>
+              <% end %>
+        </tr>
+          <% end %>
+    </table>
+</div>

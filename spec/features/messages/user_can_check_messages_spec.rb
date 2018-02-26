@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 describe 'messages' do
-    it 'see create a message from user show' do
-
+    it 'can  check  messages' do
       user_1 = create(:user)
       user_2 = create(:user, name:'joe')
 
@@ -30,7 +29,5 @@ describe 'messages' do
 
       expect(page).to have_content('ride to the party')
       expect(user_1.mailbox.conversations.first.receipts.count).to eq(2)
-
   end
-
 end

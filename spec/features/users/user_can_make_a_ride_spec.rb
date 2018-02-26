@@ -15,7 +15,7 @@ describe 'user ' do
     fill_in 'ride[origin]', :with => "Winters, ca"
     fill_in 'ride[destination]', :with => "Sacramento, ca"
     page.find('#ride_date').set("2018-03-01")
-    
+
     click_on 'Make a Ride'
 
     expect(page).to have_content("#{Ride.first.origin.full_street_address}")
@@ -23,7 +23,21 @@ describe 'user ' do
     expect(page).to have_content("#{Ride.first.date}")
 
   end
-  it 'a different user can see the posted ride' do
+  it 'a different user can see a  posted ride' do
+      user = create(:user)
+      ride = create(:ride, user:user, date: '2018-03-01' )
+
+      origin  = Origin.create!(full_street_address: "Winters, ca", ride:ride )
+      destination  = Destination.create!(full_street_address: "davis, ca", ride:ride)
+
     visit '/'
+      fill_in 'f_elem_city', :with => "Winters, ca"
+      fill_in 'f_elem_city_2', :with => "davis, ca"
+      fill_in 'date', :with => "2018-03-01"
+
+      click_button 'Geda Ride'
+
+
+      expect(page).to have_content('Winters, ca')
   end
 end

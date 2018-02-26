@@ -3,12 +3,11 @@
   <%= render :partial => "layouts/logo" %>
 <% end %>
 
-  <% content_for :bottom do  %>
-    <h3>New Conversation with   <%= @recipient.name %></h3>
-      <div class = "new-convo">
+<% content_for :bottom do  %>
+  <h3>New Conversation with   <%= @recipient.name %></h3>
+    <div class = "new-convo">
       <%= form_tag conversations_path(@recipient), method: :post do %>
           <div class = "message-input">
-
           </div>
           <div class = "message-input">
            <%= text_field_tag :subject, nil, placeholder: "Subject" %>
@@ -18,5 +17,5 @@
           </div>
           <%= submit_tag 'Send Message' %>
       <% end %>
-  <% end %>
-</div>
+    </div>
+<% end %>

@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def show
+    @trending = Ride.order("RANDOM()").limit(6)
     if params['origin']
       ride = RideService.new.find_ride(params['origin'], params['destination'], params['date'])
       if  ride.nil? || ride == false || !ride.any?

@@ -1,0 +1,47 @@
+<div class=" col-md-12 accepted-rides">
+    <h3>Rides you are booked for... </h3>
+        <table  class = "table " id= 'ride-list' >
+            <tr>
+              <th >Ride</th>
+              <th >Origin</th>
+              <th >Destination</th>
+              <th >Date</th>
+              <th >Cost</th>
+                <th >BUY!</th>
+            </tr>
+              <% @accepted.each do |ride| %>
+              <tr >
+                <td><%= link_to "View", ride_path(ride) %>
+                <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
+                <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
+                <td><%= ride.date%></td>
+                <td><%= number_to_currency(ride.cost)%></td>
+                <td><% if ride.pay_status == false || ride.pay_status == nil %>
+                      <%= form_tag charges_path(ride.id) do %>
+                      <%= hidden_field_tag 'ride', ride.id %>
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                              data-description="A month's subscription"
+                              data-amount="<%=(ride.cost) * 100%>"
+                              data-locale="auto"></script>
+                      <% end %>
+                      <% else %>
+                      Purchased
+                    <% end %>
+                </td>
+              </tr>
+              <% end %>
+        </table>
+</div>
+
+
+
+
+
+                <article>
+                  <% if flash[:error].present? %>
+                    <div id="error_explanation">
+                      <p><%= flash[:error] %></p>
+                    </div>
+                  <% end %>
+                </article>

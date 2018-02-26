@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'mailboxer'
+gem 'webmock'
 gem 'stripe'
 gem 'will_paginate', '~> 3.1.0'
 gem 'render_anywhere', :require => false
@@ -32,6 +33,8 @@ gem 'render_anywhere', :require => false
 group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
+gem 'coveralls', require: false
   gem 'launchy'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'

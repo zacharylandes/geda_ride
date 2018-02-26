@@ -7,13 +7,13 @@
   <div class =  "convo-container">
     <div class = 'message-list'>
       <h1><%= @conversation.subject %></h1>
-      <% @conversation.receipts.where(receiver_id:current_user.id).each do |receipt| %>
-          <div class = 'message-body'>
-             <h4>Message</h4>
-              <p><%= receipt.message.body %></p>
-              <p><%= button_to 'Delete', conversation_message_path(@conversation,receipt), method: :delete %>  </p>
-          </div>
-      <% end %>
+          <% @conversation.receipts.where(receiver_id:current_user.id).each do |receipt| %>
+              <div class = 'message-body'>
+                 <h4>Message</h4>
+                  <p><%= receipt.message.body %></p>
+                  <p><%= button_to 'Delete', conversation_message_path(@conversation,receipt), method: :delete %>  </p>
+              </div>
+          <% end %>
     </div>
     <div class = 'new-message'>
       <h3>New Message</h3>

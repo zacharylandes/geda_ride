@@ -11,6 +11,18 @@ function initMap() {
 
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 }
+//
+// function cost(ride_id,ride_distance){
+//   debugger;
+//   $(document).ready(function(ride_id,ride_distance){
+//         $.ajax({
+//           url : "/rides/"+ride_id,
+//           type : "PATCH",
+//           dataType: "json",
+//           data : {"text":"2,172 mi"}
+//       });
+//   });
+// }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
@@ -23,16 +35,28 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
       var summaryPanel = document.getElementById('directions-panel');
-      var cost = document.getElementById('cost');
+      var ride_id = document.getElementById('ride_id').innerHTML;
+
       summaryPanel.innerHTML = '';
-      cost.innerHTML = '';
+
       for (var i = 0; i < route.legs.length; i++) {
+        var ride = document.getElementById('ride_id').innerHTML;
         var routeSegment = i + 1;
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        // summaryPanel.innerHTML += route.legs[i].start_address + ' to <br>';
+        // summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-        cost.innerHTML += route.legs[i].distance.text
-      }
+        var ride_distance = route.legs[i].distance
+
+        $.ajax({
+          url : "/rides/"+ ride_id,
+          type : "PATCH",
+          dataType: "json",
+          data : ride_distance
+          // event.preventDefault;
+      });
+
+
+        }
     } else {
       window.alert('Directions request failed due to ' + status);
     }

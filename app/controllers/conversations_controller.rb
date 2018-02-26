@@ -11,6 +11,7 @@ class ConversationsController < ApplicationController
   def create
     recipient = User.find(params[:format])
     receipt = current_user.send_message(recipient, params[:body], params[:subject])
+    flash[:notice] = "Message Sent"
     redirect_to conversation_path(receipt.conversation)
   end
 

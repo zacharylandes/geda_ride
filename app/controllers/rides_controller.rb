@@ -17,8 +17,13 @@ class RidesController < ApplicationController
 
   def update
     ride = Ride.find(params[:id])
-    request = Request.find(params['request_id'])
-    if ride.update(update_params)
+    if params['text']
+      distance = params['text'].gsub(/[^0-9]/, '').to_i
+      cost = cost(distance)
+      ride.update(cost: cost)
+    elsif update_params
+      request = Request.find(params['request_id'])
+      ride.update(update_params)
       flash[:notice] = 'Request Approved'
       approval_message(request,ride)
       request.delete
@@ -30,7 +35,6 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
     @requester = current_user
   end
-
 
   private
 

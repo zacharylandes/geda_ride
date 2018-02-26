@@ -9,9 +9,7 @@ class RideService
 
    def origin_finder(origin)
     begin
-        # Rails.cache.fetch(:origin){
       origin = Origin.within(15, :origin=> origin)
-    # }
     rescue Geokit::Geocoders::GeocodeError
       return  false
     end
@@ -20,9 +18,7 @@ class RideService
 
   def dest_finder(destination)
     begin
-    # Rails.cache.fetch(:destination){
       dests = Destination.within(15, :origin=> destination)
-    # }
     rescue Geokit::Geocoders::GeocodeError
       return false
     end
@@ -55,10 +51,10 @@ class RideService
 
   def no_match(origins,dests,dates)
     no_match = {}
-    if origins.any?
-      no_match['origins'] = origins
-    elsif dests.any?
+    if dests.any?
       no_match['dests'] = dests
+    elsif origins.any?
+      no_match['origins'] = origins
     elsif dates.any?
       no_match['dates'] = dates
     end
@@ -71,4 +67,7 @@ class RideService
     end
   end
 
+  def reviews
+    ["#{Faker::MostInterestingManInTheWorld.quote}","#{Faker::Seinfeld.character}" ]
+  end
 end

@@ -1,9 +1,12 @@
-      <div class="col-md-12 text-right navicon" >
-        <% if current_user %>
-          Welcome <strong> <span> <%= link_to current_user.name, user_path(current_user) %></span></strong>
-          <%= link_to "Sign out", signout_path, class: 'login',id: "sign_out"  %>
-          <%= link_to "Post a ride", new_ride_path, class: 'login',id: "sign_out"  %>
-        <% else %>
-          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-        <% end %>
-      </div>
+<div class = 'tops'>
+  <%= link_to image_tag('mountain.png'), home_path, class: 'mountain' %>
+    <div class="col-md-12 text-right navicon" >
+      <% if current_user %>
+         <strong> <span> <%= link_to current_user.name, user_path(current_user) %></span></strong>
+         <strong> <span>  <%= link_to "Sign out", signout_path, class: 'login',id: "sign_out"  %></span></strong>
+         <strong> <span> <%= link_to "Post a ride", new_ride_path, class: 'login',id: "sign_out"  %></span></strong>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
+</div>

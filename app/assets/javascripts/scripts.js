@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 $('.request').click(function(event){
   event.preventDefault()
-  $('.request-form').addClass('request-show')
+  $('.request-form').toggleClass('request-show')
 });
 jQuery(function ()
  {

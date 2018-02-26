@@ -6,18 +6,18 @@
 <% content_for :bottom do  %>
   <h3><%= link_to 'Back to your profile',user_path(current_user) %></h3>
   <h1>Your Conversations</h1>
-  <table class="table table-striped" id= 'ride-list' >
-    <tr>
-      <th >User</th>
-      <th >Subject</th>
-      <th >Date</th>
-    </tr>
+  <table class="table " id= 'ride-list' >
+      <tr>
+        <th >User</th>
+        <th >Subject</th>
+        <th >Date</th>
+      </tr>
     <% @conversations.each do |conversation| %>
-    <tr >
-      <td>  <%= User.find( conversation.receipts.where.not(receiver_id:current_user.id).first.receiver_id).name %></td>
-      <td>  <%= link_to conversation.subject, conversation_path(conversation) %></td>
-      <td>  <%= conversation.updated_at.strftime('%m-%d-%y') %></td>
-    </tr>
-      <% end %>
-    </table>
-      <% end %>
+      <tr >
+        <td> <%= User.find( conversation.receipts.where.not(receiver_id:current_user.id).first.receiver_id).name %></td>
+        <td> <%= link_to conversation.subject, conversation_path(conversation) %></td>
+        <td> <%= conversation.updated_at.strftime('%m-%d-%y') %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
