@@ -21,7 +21,7 @@ describe 'messages' do
 
       click_on 'Send Message'
 
-      expect(page).to have_content( "gimme a ride dawg")
+      expect(page).to have_content( "ride to the party")
       expect(user_2.mailbox.conversations.first.receipts.first.message.body).to eq("gimme a ride dawg")
   end
 

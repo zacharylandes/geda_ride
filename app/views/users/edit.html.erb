@@ -4,14 +4,12 @@
   <% end %>
 
   <% content_for :bottom do %>
-  <h1>Edit your profile</h1>
+    <h1>Edit your profile</h1>
       <%= form_for @user do |f| %>
-
-      <p><%= f.label :Name %></p>
-      <p>  <%= f.text_field :name, placeholder: "Name"%></p>
-    <p>  <%= f.label :Image %></p>
-
-      <p>  <%= f.file_field :image, placeholder: "Image"%></p>
-    <p>  <%= f.submit "Submit" , class: "btn btn-md" %></p>
+        <p>  <%= f.label :Name %></p>
+        <p>  <%= f.text_field :name, class:'input-search'%></p>
+        <p>  <%= f.label :Image %></p>
+        <p>  <%= f.file_field :image, class:'input-search'%></p>
+        <p>  <%= f.submit "Update" , class: "btn btn-md" %></p>
       <% end %>
   <% end %>
