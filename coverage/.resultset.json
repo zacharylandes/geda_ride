@@ -417,62 +417,6 @@
         1,
         null
       ],
-      "/Users/zacharylandes/turing/3module/Gedaride/app/models/ride.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/zacharylandes/turing/3module/Gedaride/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/zacharylandes/turing/3module/Gedaride/app/models/origin.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/zacharylandes/turing/3module/Gedaride/app/models/destination.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
       "/Users/zacharylandes/turing/3module/Gedaride/app/models/user.rb": [
         1,
         1,
@@ -481,13 +425,13 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -499,6 +443,11 @@
         null,
         null,
         null,
+        null
+      ],
+      "/Users/zacharylandes/turing/3module/Gedaride/app/models/application_record.rb": [
+        1,
+        1,
         null
       ],
       "/Users/zacharylandes/turing/3module/Gedaride/app/uploaders/image_uploader.rb": [
@@ -553,8 +502,32 @@
         null,
         null,
         null
+      ],
+      "/Users/zacharylandes/turing/3module/Gedaride/app/models/ride.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
       ]
     },
-    "timestamp": 1519680722
+    "timestamp": 1519682380
   }
 }
