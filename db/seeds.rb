@@ -3,7 +3,7 @@ require 'date'
 avatars  = ['https://s3-us-west-1.amazonaws.com/gedaride/team-01.png','https://s3-us-west-1.amazonaws.com/gedaride/team-02.png','https://s3-us-west-1.amazonaws.com/gedaride/team-03.png', 'https://s3-us-west-1.amazonaws.com/gedaride/donkey-avatar.png', "https://s3-us-west-1.amazonaws.com/gedaride/leopard-onesie.png", 'https://s3-us-west-1.amazonaws.com/gedaride/bill.jpg','https://s3-us-west-1.amazonaws.com/gedaride/elaine.jpeg',"https://s3-us-west-1.amazonaws.com/gedaride/fat-bunny.jpg","https://s3-us-west-1.amazonaws.com/gedaride/fat-cat.jpg","https://s3-us-west-1.amazonaws.com/gedaride/george.jpg","https://s3-us-west-1.amazonaws.com/gedaride/hamster1.jpg","https://s3-us-west-1.amazonaws.com/gedaride/hamster4.jpg","https://s3-us-west-1.amazonaws.com/gedaride/ilana.jpg","https://s3-us-west-1.amazonaws.com/gedaride/jb_1.jpeg","https://s3-us-west-1.amazonaws.com/gedaride/jb.jpg","https://s3-us-west-1.amazonaws.com/gedaride/jesus.jpg","https://s3-us-west-1.amazonaws.com/gedaride/koala.jpeg","https://s3-us-west-1.amazonaws.com/gedaride/skully.jpg","https://s3-us-west-1.amazonaws.com/gedaride/tina.png","https://s3-us-west-1.amazonaws.com/gedaride/woody.jpg", "https://s3-us-west-1.amazonaws.com/gedaride/mulder.jpg", 'https://s3-us-west-1.amazonaws.com/gedaride/screech.jpg','https://s3-us-west-1.amazonaws.com/gedaride/panda-bear-avatar.jpg','https://s3-us-west-1.amazonaws.com/gedaride/alex.jpg']
 
 500.times do
-  User.create(name: "#{Faker::GameOfThrones.character}", email: "#{Faker::Internet.email }",image: Rails.root.join("app/assets/images/#{avatars.sample}").open)
+  User.create(name: "#{Faker::GameOfThrones.character}", email: "#{Faker::Internet.email }",image: avatars.sample)
 end
 
 def next_thirty_days
