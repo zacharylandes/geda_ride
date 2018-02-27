@@ -13,6 +13,8 @@ gem 'redis-rails'
 gem 'bootstrap', '~> 4.0.0'
 gem 'figaro'
 gem 'geokit-rails'
+gem 'carrierwave_direct'
+
 gem 'geocoder'
 gem 'StreetAddress', :require => "street_address"
 gem 'rails', '~> 5.1.4'
