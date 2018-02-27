@@ -11,7 +11,7 @@ gem 'faker'
 gem 'faraday'
 gem 'redis-rails'
 gem 'bootstrap', '~> 4.0.0'
-
+gem 'jquery-rails'
 gem 'figaro'
 gem 'geokit-rails'
 gem 'geocoder'
