@@ -3,10 +3,10 @@
 
 $(document).ready(function() {
 
-$('.request').click(function(event){
-  event.preventDefault()
-  $('.request-form').toggleClass('request-show')
-});
+// $('.request').click(function(event){
+//   event.preventDefault()
+//   $('.request-form').toggleClass('request-show')
+// });
 // jQuery(function ()
 //  {
 // 	 jQuery("#f_elem_city_2").autocomplete({

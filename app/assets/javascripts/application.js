@@ -9,6 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require jquery
-//= require jquery_ui.min
-//= require_tree .
+
+//= require jquery.min
+//= require bootstrap.min
+//= require waypoints.min
+//= require jquery.flexslider
+//= require modernizr
+//= require scripts
+//= require map/gmap
