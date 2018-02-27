@@ -7,7 +7,9 @@
     <div id= " user_show" class = "col-md-4">
       <div class = "user-image">
         <h1><%= @user.name %></h1>
-          <%= image_tag(avatars) %>
+          <% if @user.image.url %>
+        <%= image_tag @user.image.url %>
+        <% end %>
       </div>
       <div class = "ratings-container">
         <button class='request'>Reviews</button>
