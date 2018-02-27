@@ -11,5 +11,4 @@
 // about supported directives.
 
 //= jquery
-//= require jquery-ui
 //= require_tree .
