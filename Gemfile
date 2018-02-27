@@ -17,6 +17,7 @@ gem 'geokit-rails'
 gem 'geocoder'
 gem 'StreetAddress', :require => "street_address"
 gem 'rails', '~> 5.1.4'
+gem 'jquery-ui-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
