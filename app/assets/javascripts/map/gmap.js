@@ -1,4 +1,7 @@
+
+
 var rideDistance = 0;
+
 
 function initMap() {
   var directionsService = new google.maps.DirectionsService;
@@ -46,6 +49,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         // summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
         var ride_distance = route.legs[i].distance
+
 
         $.ajax({
           url : "/rides/"+ ride_id,
