@@ -6,14 +6,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # def create
-  #   user = User.new(user_params)
-  #   if user.save!
-  #     redirect_to user_path(user)
-  #   else
-  #     render :new
-  #   end
-  # end
+    # def create
+    #   user = User.new(user_params)
+    #   if user.save!
+    #     redirect_to user_path(user)
+    #   else
+    #     render :new
+    #   end
+    # end
 
   def show
     @requests = Request.where(ride_id: Ride.where(user_id:current_user))
