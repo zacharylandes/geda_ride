@@ -8,7 +8,9 @@
       <div class = "user-image">
         <h3>Offered by</h3>
         <p><%=link_to @ride.user.name, user_path(@ride.user) %></p>
-        <p><%=  link_to image_tag(avatars), user_path(@ride.user)  %></p>
+        <% if @ride.user.image.url %>
+          <%= link_to image_tag(@ride.user.image.url), user_path(@ride.user) %>
+        <% end %>
       </div>
       <div class = "ratings-container">
         <h3>User Score</h3>

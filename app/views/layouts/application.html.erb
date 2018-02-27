@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GedaRide</title>
-    <%= favicon_link_tag("https://s3-us-west-1.amazonaws.com/gedaride/mountain.png") %>
+    <%= favicon_link_tag("https://s3-us-west-1.amazonaws.com/gedaride/mountain-black.png") %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
 
     <title>Gedaride</title>
@@ -28,7 +27,7 @@
         <section class=" section-padding" id="">
           <div class="">
             <div class="row">
-              <div class="col-md-10 col-md-offset-1 wp1">
+              <div class="col-md-8 col-md-offset-2 wp1">
                 <div class ='bottom'>
                    <% flash.each do |key, value| %>
                       <div class="alert alert-<%= key %>"><%= value %></div>

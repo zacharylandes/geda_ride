@@ -7,6 +7,9 @@ $('.request').click(function(event){
   event.preventDefault()
   $('.request-form').toggleClass('request-show')
 });
+
+// $("#f_elem_city_2").cityAutocomplete();
+
 // jQuery(function ()
 //  {
 // 	 jQuery("#f_elem_city_2").autocomplete({
