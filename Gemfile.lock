@@ -495,7 +495,7 @@ DEPENDENCIES
   faker
   faraday
   figaro
-  fog
+  fog-aws
   geocoder
   geokit-rails
   jbuilder (~> 2.5)
