@@ -21,6 +21,7 @@ describe 'rides' do
 
     click_button 'Geda Ride'
 
+
     click_on 'oakland'
 
     expect(current_path).to eq(destinations_path(destination_2))

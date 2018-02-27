@@ -35,12 +35,6 @@ jQuery(function ()
 	});
 
 
-
-
-
-
-
-
 jQuery(function ()
  {
 	 jQuery("#f_elem_city").autocomplete({

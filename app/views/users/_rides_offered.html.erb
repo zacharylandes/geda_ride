@@ -5,7 +5,7 @@
               <th >Destination</th>
               <th >Date</th>
             </tr>
-              <% @user.rides.each do |ride| %>
+              <% @user.rides.where(status: 3).each do |ride| %>
               <tr >
                 <td><%= link_to "View", ride_path(ride) %>
                 <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>

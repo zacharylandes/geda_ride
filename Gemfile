@@ -10,6 +10,8 @@ gem 'pry'
 gem 'faker'
 gem 'faraday'
 gem 'redis-rails'
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
 gem 'figaro'
 gem 'geokit-rails'
 gem 'geocoder'
@@ -34,7 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
-gem 'coveralls', require: false
+  gem 'coveralls', require: false
   gem 'launchy'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
