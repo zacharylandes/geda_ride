@@ -10,6 +10,8 @@ gem 'pry'
 gem 'faker'
 gem 'faraday'
 gem 'redis-rails'
+gem 'bootstrap', '~> 4.0.0'
+
 gem 'figaro'
 gem 'geokit-rails'
 gem 'geocoder'
