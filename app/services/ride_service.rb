@@ -10,7 +10,7 @@ class RideService
    def origin_finder(origin)
     begin
       origin = Origin.within(15, :origin=> origin)
-    rescue Geokit::Geocoders::GeocodeError
+      rescue Geokit::Geocoders::GeocodeError
       return  false
     end
     origin.map{|origin|origin.ride}
@@ -19,7 +19,7 @@ class RideService
   def dest_finder(destination)
     begin
       dests = Destination.within(15, :origin=> destination)
-    rescue Geokit::Geocoders::GeocodeError
+  rescue Geokit::Geocoders::GeocodeError
       return false
     end
     dests.map{|dest|dest.ride}
