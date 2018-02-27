@@ -39,9 +39,7 @@
             <td><%= link_to ride.origin.full_street_address, origins_path( ride.origin) %></td>
             <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
             <td><%= ride.date%></td>
-            <% if ride.user.image.url %>
               <td id="image-icon"><%= link_to (image_tag(asset_path(ride.user.image.url))), user_path(ride.user)  %></p>
-            <% end %>
           </tr>
           <% end %>
     </table>

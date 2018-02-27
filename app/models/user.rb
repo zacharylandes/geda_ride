@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :rides
   mount_uploader :image, ImageUploader
-
+  attr_accessible :image
   acts_as_messageable
 
   def self.from_omniauth(auth)
