@@ -4,17 +4,19 @@
 <% end %>
 
 <% content_for :bottom do  %>
+<h3> Your conversation with <%=  User.find(@conversation.receipts.where.not(receiver_id:current_user.id).first.receiver_id).name%></h3>
   <div class =  "convo-container">
     <div class = 'message-list'>
-      <h3><%= link_to '< Back to your profile',user_path(current_user) %></h3>
+      <% if @ride %>
+      <h4><%= link_to '< Back to the ride',ride_path(@ride) %></h4>
+      <% end %>
+      <h4><%= link_to '< Back to your profile',user_path(current_user) %></h4>
       <h1><%= @conversation.subject %></h1>
-        <h3> Your conversation with <%=  User.find(@conversation.receipts.where.not(receiver_id:current_user.id).first.receiver_id).name%></h3>
           <% @conversation.receipts.where(receiver_id:current_user.id).each do |receipt| %>
               <div class = 'message-body'>
-                 <h4>Subject</h4>
+                 <h4></h4>
                   <%= receipt.message.subject %>
                   <%= receipt.message.body %>
-
                   <p><%= button_to 'Delete', conversation_message_path(@conversation,receipt), method: :delete %>  </p>
               </div>
           <% end %>

@@ -12,11 +12,14 @@ class ConversationsController < ApplicationController
     recipient = User.find(params[:format])
     receipt = current_user.send_message(recipient, params[:body], params[:subject])
     flash[:notice] = "Message Sent"
-    redirect_to conversation_path(receipt.conversation)
+    redirect_to conversation_path(receipt.conversation, ride:params['ride'])
   end
 
   def show
     @conversation = current_user.mailbox.conversations.find(params[:id])
+    if params['ride']
+      @ride = Ride.find(params['ride'])
+    end
   end
 
 end

@@ -78,8 +78,9 @@ border: 1px solid $onyx;
 .ride-show-container{
   display:flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+
 .search{
   background-color: white;
   color:#343839
