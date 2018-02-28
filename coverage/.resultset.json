@@ -490,11 +490,11 @@
         null,
         null,
         1,
-        21,
+        32,
         null,
         null,
         null,
-        21,
+        32,
         null,
         null,
         1,
@@ -560,6 +560,9 @@
         null,
         null
       ],
+      "/Users/zacharylandes/turing/3module/Gedaride/spec/features/events/user_can_view_events_from_a_city_show_page_spec.rb": [
+
+      ],
       "/Users/zacharylandes/turing/3module/Gedaride/spec/features/events/user_can_view_rides_from_events_searched_spec.rb": [
         1,
         null,
@@ -579,7 +582,6 @@
         1,
         1,
         null,
-        1,
         1,
         1,
         1,
@@ -1721,22 +1723,22 @@
         1,
         null,
         1,
-        21,
-        21,
-        21,
+        23,
+        23,
+        23,
         2,
         null,
-        19,
-        142,
+        21,
+        156,
         null,
-        19,
+        21,
         null,
         null,
         null,
         1,
-        19,
-        19,
-        142,
+        21,
+        21,
+        160,
         null,
         null,
         null,
@@ -1758,6 +1760,7 @@
         1,
         null,
         1,
+        2,
         2,
         2,
         null,
@@ -2033,6 +2036,6 @@
         null
       ]
     },
-    "timestamp": 1519844238
+    "timestamp": 1519853649
   }
 }

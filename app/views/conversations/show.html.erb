@@ -12,7 +12,9 @@
           <% @conversation.receipts.where(receiver_id:current_user.id).each do |receipt| %>
               <div class = 'message-body'>
                  <h4>Subject</h4>
-                  <p><%= receipt.message.subject %></p>
+                  <%= receipt.message.subject %>
+                  <%= receipt.message.body %>
+
                   <p><%= button_to 'Delete', conversation_message_path(@conversation,receipt), method: :delete %>  </p>
               </div>
           <% end %>
