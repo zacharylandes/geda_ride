@@ -1,7 +1,5 @@
 <%= render :partial => 'layouts/search' %>
 <% content_for :bottom do  %>
-  <%= link_to 'Events', events_path(@events) %>
-<div class= 'home-container'>
   <h3> Sorry There are no rides that match your search, but here are some related rides</h3>
     <table  class = "table " id= 'ride-list' >
       <tr>
@@ -18,13 +16,10 @@
         <td><%= link_to ride.destination.full_street_address, destinations_path(ride.destination) %></td>
         <td><%=ride.date%></td>
         <% if ride.user.image.url %>
-          <td id= "image-icon"><%= image_tag ride.user.image.url%></td>
+          <td id= "image-icon"><%= link_to image_tag(ride.user.image.url), user_path(ride.user)%></td>
         <% end %>
       </tr>
     <% end %>
   </table>
-  <div class="event-list">
-    <%= render :partial => 'layouts/event_show' %>
-  </div>
-</div>
+
 <% end %>

@@ -21,7 +21,7 @@ describe 'rides' do
 
       click_button 'Geda Ride'
 
-      click_on 'davis, ca'
+      first(:link,'davis, ca').click
 
       expect(page).to have_content('winters, ca')
     end
