@@ -6,11 +6,11 @@
 <% content_for :bottom do  %>
   <h3>New Conversation with   <%= @recipient.name %></h3>
     <div class = "new-convo">
-      <%= form_tag conversations_path(@recipient), method: :post do %>
+      <%= form_tag conversations_path(@recipient, ride: params['ride']), method: :post do %>
           <div class = "message-input">
           </div>
           <div class = "message-input">
-           <%= text_field_tag :subject, nil, placeholder: "Subject" %>
+           <%= text_field_tag :subject, nil, placeholder: "Subject", class:"input-search" %>
           </div>
           <div class = "message-input">
            <%= text_area_tag :body, nil, placeholder: "Message" %>

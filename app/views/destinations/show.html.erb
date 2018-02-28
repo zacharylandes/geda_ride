@@ -1,0 +1,24 @@
+<% content_for :top do %>
+  <%= render :partial => "layouts/header" %>
+  <%= render :partial => "layouts/logo" %>
+<% end %>
+
+<% content_for :bottom do  %>
+  <h1>Rides ending in:  <%= @destinations.first.full_street_address %></h1>
+  <table class = "table " id= 'ride-list'>
+    <tr>
+      <th>View</th>
+      <th>Origin</th>
+      <th>Date</th>
+      <th>Offered By</th>
+    </tr>
+    <% @destinations.each do |destination| %>
+    <tr>
+      <td><%= link_to "View", ride_path(destination.ride) %></td>
+      <td><%= link_to destination.ride.origin.full_street_address, origins_path(destination.ride.origin) %></td>
+      <td><%= destination.ride.date%></td>
+      <td id="image-icon"><%= link_to (image_tag destination.ride.user.image.url if destination.ride.user.image.url), user_path(destination.ride.user)  %></p>
+    </tr>
+    <% end %>
+  </table>
+<% end %>

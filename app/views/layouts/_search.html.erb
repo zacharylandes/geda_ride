@@ -12,7 +12,7 @@
             <div class="input-group mb-3">
                 <%= form_tag(home_path(:anchor => "bottom"), method: :get) do  %>
                   <p class="animated fadeInUp delay-05s origin">Where do you want a ride from?</p>
-                  <%= text_field_tag :origin, nil, :required => true, placeholder: "origin", class:'form-control', id:"f_elem_city"  %>
+                  <%= text_field_tag :origin, nil, :required => true, placeholder: "origin", class:'form-control', id:"f_elem_city"   %>
                   <p class="animated fadeInUp delay-05s origin"> And where are you headed?</p>
                   <%= text_field_tag :destination, nil, :required => true, placeholder: "destination", class:'form-control', id:"f_elem_city_2" %>
                   <p class="animated fadeInUp delay-05s origin">whenish?</p>

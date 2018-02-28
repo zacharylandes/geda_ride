@@ -1,0 +1,28 @@
+<% content_for :header do  %>
+  <%= render :partial => 'layouts/new_header' %>
+<% end %>
+<% content_for :top do  %>
+  <div class="row ">
+    <div class="col-md-8 col-md-offset-2 text-center " id="header-scroll inner">
+      <div class ='logo'><%= link_to image_tag("https://s3-us-west-1.amazonaws.com/gedaride/speaker-white1.png"), home_path%></div>
+      <h1 class="animated fadeInDown">Geda<span id="ride">Ride</span>To The <span>Show</span></h1>
+      <p class="animated fadeInUp delay-05s">Get to the Show</p>
+        <div id="rows">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <div class="input-group mb-3">
+                <%= form_tag(events_path(:anchor => "bottom"), method: :get) do  %>
+                  <p class="animated fadeInUp delay-05s origin">Where are you?</p>
+                  <%= text_field_tag :origin, nil, :required => true, placeholder: "origin", class:'form-control', id:"f_elem_city"   %>
+                  <p class="animated fadeInUp delay-05s origin">Date</p>
+                  <%= date_field_tag :date, nil, placeholder: "date", class:'form-control', id:'ride-date', :required => true%>
+                  <%= submit_tag "Showtime", class: "search" %>
+                <% end %>
+            <div class="input-group-prepend">
+              <div class="input-group mb-3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'rides' do
   it 'can  find all matching rides' do
     VCR.use_cassette 'api_response_ride' do
-
+    Destination.destroy_all
     user = create(:user)
     ride = create(:ride, user:user, date: '2018-03-18'  )
     ride_2 = create(:ride, user:user, date: '2018-03-18' )
@@ -21,8 +21,7 @@ describe 'rides' do
 
     click_button 'Geda Ride'
 
-
-    expect(page).to have_content('davis, ca',count:2)
+    expect(page).to have_link('davis, ca')
   end
 end
 
