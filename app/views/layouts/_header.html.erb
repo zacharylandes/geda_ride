@@ -1,6 +1,7 @@
 <div class = 'tops'>
-  <%= link_to image_tag("https://s3-us-west-1.amazonaws.com/gedaride/mountain.png"), home_path, class: 'mountain' %>
-    <div class="col-md-12 text-right navicon" >
+  <%= link_to image_tag("https://s3-us-west-1.amazonaws.com/gedaride/speaker-white.png"), events_path, class: 'mountain' %>
+  <% link_to 'Events',  %>
+<div class="col-md-12 text-right navicon" >
       <% if current_user %>
          <strong> <span> <%= link_to "(#{current_user.mailbox.conversations.count})", conversations_path %></span></strong>
          <strong> <span> <%= link_to current_user.name, user_path(current_user) %></span></strong>

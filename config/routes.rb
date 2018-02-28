@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   root to: "home#show"
   get '/home', to: "home#show"
+  get '/homes', to: "home#index"
+
   resource :home, only: [:show]
-  resources :destinations, only: [:index]
+  resources :destinations, only: [:index, :show]
   resources :origins, only: [:index]
   resources :rides
   resources :users
+resources :events
   resources :requests, only: [:create]
   resources :conversations do
     resources :messages

@@ -8,7 +8,6 @@ end
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'pry'
 gem 'newrelic_rpm'
-
 gem 'faker'
 gem 'faraday'
 gem 'carrierwave-aws'

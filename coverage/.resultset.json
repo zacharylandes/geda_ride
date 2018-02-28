@@ -431,8 +431,8 @@
       "/Users/zacharylandes/turing/3module/Gedaride/app/controllers/charges_controller.rb": [
         1,
         null,
-        1,
-        0,
+        null,
+        null,
         null,
         null,
         1,
@@ -1886,6 +1886,6 @@
         null
       ]
     },
-    "timestamp": 1519766479
+    "timestamp": 1519768374
   }
 }

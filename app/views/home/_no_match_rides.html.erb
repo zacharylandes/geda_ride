@@ -16,5 +16,7 @@
           <td id= "image-icon"><%= image_tag ride.user.image.url  %></td>
         <% end %>
       </tr>
+      <%= render :partial => 'layouts/event_search' %>
+
     <% end %>
   </table>

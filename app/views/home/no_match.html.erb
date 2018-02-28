@@ -1,7 +1,7 @@
 <%= render :partial => 'layouts/search' %>
-
 <% content_for :bottom do  %>
-
+  <%= link_to 'Events', events_path(@events) %>
+<div class= 'home-container'>
   <h3> Sorry There are no rides that match your search, but here are some related rides</h3>
     <table  class = "table " id= 'ride-list' >
       <tr>
@@ -13,8 +13,7 @@
       </tr>
     <% @rides.first.each do |ride| %>
       <tr >
-            <td><%= link_to "View", ride_path(ride) %>
-
+        <td><%= link_to "View", ride_path(ride) %>
         <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
         <td><%= link_to ride.destination.full_street_address, destinations_path(ride.destination) %></td>
         <td><%=ride.date%></td>
@@ -24,4 +23,8 @@
       </tr>
     <% end %>
   </table>
+  <div class="event-list">
+    <%= render :partial => 'layouts/event_show' %>
+  </div>
+</div>
 <% end %>

@@ -8,6 +8,12 @@ HTML5 display definitions
   width:300px;
   height:300px;
 }
+
+.home-container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
 #inner{
   margin-top:100px;
 }
@@ -106,6 +112,7 @@ text-align: center;
 }
 .user-show-tables{
   display: flex;
+
   flex-direction: row;
   justify-content: space-around;
 }
@@ -118,10 +125,12 @@ text-align: center;
   justify-content: space-between;
 }
   .mountain img{
-  width: 50px;
+  width: 80px;
   margin-left:20px;
 }
-
+.event-image img{
+width:60px;
+}
 #user_show{
   background-color: rgba(246,248,250,0.5);
 }
