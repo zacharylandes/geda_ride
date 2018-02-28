@@ -9,6 +9,5 @@ def index
   def show
     location = params['id']
     @destinations = Destination.where('full_street_address  ILIKE ?' ,"%#{location}%" )
-    binding.pry
 end
 end

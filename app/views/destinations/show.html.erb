@@ -4,7 +4,6 @@
 <% end %>
 
 <% content_for :bottom do  %>
-  <% binding.pry %>
   <h1>Rides ending in:  <%= @destinations.first.full_street_address %></h1>
   <table class = "table " id= 'ride-list'>
     <tr>

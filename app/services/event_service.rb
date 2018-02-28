@@ -3,10 +3,14 @@ class EventService
   def find_event(location)
       response = Faraday.get("http://api.eventful.com/json/events/search?app_key=dPQmqbgQ9F95XrGd&q=music&location=#{location}&date=next+week")
       response = JSON.parse(response.body)
-      response['events']['event'].map  do |event|
-      Event.find_or_create_by(title: event['title'], date: event['start_time'], url: event['url'], image: ['image'], city: location)
-    end
-      lookup(location)
+      if response['events'] == nil
+          return no_event_match
+      else
+        response['events']['event'].map  do |event|
+        Event.find_or_create_by(title: event['title'], date: event['start_time'], url: event['url'], image: ['image'], city: location)
+        end
+        lookup(location)
+      end
   end
 
   def lookup(location)
@@ -15,6 +19,11 @@ class EventService
         event.title
       end
   end
+
+  def no_event_match
+     false
+  end
+
 
   def parser(ids)
     ids = ids.gsub("/"," ").split(' ')

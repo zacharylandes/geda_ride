@@ -6,11 +6,13 @@ class ApplicationController < ActionController::Base
                 :auth_sender,
                 :cost,
                 :message_tamplate,
-                :events
+                :events,
+                :error_event_message
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
 
   def auto_sender
     User.create(name:"GedaRide")
@@ -23,9 +25,9 @@ class ApplicationController < ActionController::Base
 
   def events
       events = [ 'https://s3-us-west-1.amazonaws.com/gedaride/spider.jpeg',
-"https://s3-us-west-1.amazonaws.com/gedaride/guitargrey.jpeg",
-'https://s3-us-west-1.amazonaws.com/gedaride/hotair.jpeg',
-'https://s3-us-west-1.amazonaws.com/gedaride/bass.jpeg']
+                  "https://s3-us-west-1.amazonaws.com/gedaride/guitargrey.jpeg",
+                  'https://s3-us-west-1.amazonaws.com/gedaride/hotair.jpeg',
+                  'https://s3-us-west-1.amazonaws.com/gedaride/bass.jpeg']
       events.sample
   end
 

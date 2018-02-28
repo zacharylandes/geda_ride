@@ -17,7 +17,7 @@
         <div class="star-ratings-sprite"><span style= "width:<%=  Random.rand(30..100)%>%" class="star-ratings-sprite-rating"></span></div>
       </div>
     </div>
-    <div class = 'ride-show'>
+    <div class = 'ride-show "col-md-4"'>
       <h3>Starting</h3>
       <p><%=content_tag(:p, @ride.origin.full_street_address, id: "start")%></p>
       <h3>Ending</h3>
@@ -25,11 +25,11 @@
       <h3>Date</h3>
       <p><%= @ride.date %></p>
     </div>
-    <div id="route">
+    <div id="route col-md-4">
       <h3 >Total Cost</h3>
         <%= number_to_currency(@ride.cost) if !@ride.nil? %>
       <h3 >Distance</h3>
-          <div id="directions-panel">
+          <div id="directions-panel col-md-4">
           </div>
           <%= content_tag :ride,@ride.id, id:'ride_id' %>
         <div id="message-user">

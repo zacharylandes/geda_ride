@@ -1,9 +1,16 @@
 class EventsController < ApplicationController
 
   def index
-  binding.  pry
-    if params['origin'] || params['format']
-      @events = EventService.new.find_event(params['origin']) || EventService.new.find_event(params['format'])
+    if params['origin']
+        events = EventService.new.find_event(params['origin'])
+        if events == false
+            flash[:notice] = "sorry we couldn't find any events in that area"
+          @events = Event.order("RANDOM()").limit(6)
+        else
+          @events = events
+        end
+    elsif params['format']
+        @events =  EventService.new.find_event(params['format'])
     else
       @events = Event.order("RANDOM()").limit(6)
     end
