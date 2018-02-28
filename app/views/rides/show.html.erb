@@ -29,7 +29,7 @@
       <h3 >Total Cost</h3>
         <%= number_to_currency(@ride.cost) if !@ride.nil? %>
       <h3 >Distance</h3>
-          <div id="directions-panel col-md-4">
+          <div id="directions-panel">
           </div>
           <%= content_tag :ride,@ride.id, id:'ride_id' %>
         <div id="message-user">

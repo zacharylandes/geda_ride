@@ -17,7 +17,7 @@
           <td><%= event.city%>
           <td><%= event.date %>
           <td><%=link_to image_tag(events), event.url, class: 'event-image', target: '_blank' %></td>
-          <td><%= link_to 'GedaRide', destination_path(event.city) %></td>
+          <td id = 'click-event'><%= link_to 'GedaRide', destination_path(event.city) %></td>
         </tr>
         <% end %>
   </table>
