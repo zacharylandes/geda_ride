@@ -1,6 +1,6 @@
 class Ride < ApplicationRecord
-  has_one :origin
-  has_one :destination
+  has_one :origin, dependent: :destroy
+  has_one :destination, dependent: :destroy
   belongs_to :user
   has_many :requests
 

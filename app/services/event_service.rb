@@ -24,7 +24,6 @@ class EventService
      false
   end
 
-
   def parser(ids)
     ids = ids.gsub("/"," ").split(' ')
     ids.map do |event |

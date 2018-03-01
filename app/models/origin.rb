@@ -1,7 +1,7 @@
 class Origin < ApplicationRecord
   geocoded_by :full_street_address
-  after_validation :geocode 
-  belongs_to :ride
+  after_validation :geocode
+  belongs_to :ride, dependent: :destroy
 
   acts_as_mappable :default_units => :miles,
                  :default_formula => :sphere,

@@ -80,7 +80,14 @@ border: 1px solid $onyx;
   flex-direction: row;
   justify-content: space-between;
 }
-
+.media img{
+  color:white;
+  width:30px;
+  margin-bottom: 10px;
+}
+.media img:hover{
+  color:#3dc9b3;
+}
 .search{
   background-color: white;
   color:#343839
@@ -109,11 +116,10 @@ border: 1px solid $onyx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-text-align: center;
+  text-align: center;
 }
 .user-show-tables{
   display: flex;
-
   flex-direction: row;
   justify-content: space-around;
 }
@@ -126,17 +132,18 @@ text-align: center;
   justify-content: space-between;
 }
 .top-left{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-  .mountain img{
+.mountain img{
   width: 60px;
   margin-left:20px;
 }
+
 .event-image img{
-width:60px;
+  width:60px;
 }
 #user_show{
   background-color: rgba(246,248,250,0.5);
@@ -161,7 +168,6 @@ width:60px;
 
 .form_citydetails{
   z-index: 1;
-
 }
 .origin {
   margin-top:60px;
@@ -169,7 +175,6 @@ width:60px;
 #f_elem_city, #f_elem_city_2, #ride-date{
   border-radius: 10px;
   margin-bottom: 20px;
-
 }
 .login{
   margin: 0 20px;
@@ -543,7 +548,7 @@ ul.legals li { display: inline-block; }
 ul.legals li::after { content: " |"; }
 ul.legals li:last-child::after { content: ""; }
 .legals { text-align: left; }
-.credit { text-align: right; }
+.credit { display: flex; flex-direction: row; justify-content: space-between; align-items: baseline;}
 /* ==========================================================================
 FlexSlider Custom CSS
 ========================================================================== */

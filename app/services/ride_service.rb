@@ -4,7 +4,11 @@ class RideService
     ride =Ride.create!(user: user, date: params['date'])
     origin = Origin.create!(full_street_address: params['origin'], ride:ride )
     destination = Destination.create(full_street_address:params['destination'], ride:ride)
-    ride
+    if origin.latitude == nil || destination.longitude == nil
+      return false
+    else
+      ride
+    end
   end
 
    def origin_finder(origin)

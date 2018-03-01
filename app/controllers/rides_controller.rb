@@ -7,8 +7,13 @@ class RidesController < ApplicationController
 
   def create
     ride = RideService.new.create_ride(ride_params,current_user)
-    flash[:notice] = 'Ride Created!'
-    redirect_to ride_path(ride)
+    if ride == false
+      flash[:notice] = 'We had some trouble posting your ride, please try again'
+      redirect_to new_ride_path
+    else
+      flash[:notice] = 'Ride Created!'
+      redirect_to ride_path(ride)
+    end
   end
 
   def show

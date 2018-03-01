@@ -40,4 +40,25 @@ describe 'user ' do
 
       expect(page).to have_content('Winters, ca')
   end
+    it ' errors if the ride is invalid  ' do
+      user = create(:user, name:"zach")
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit '/'
+
+      click_on "Post a ride"
+
+      expect(current_path).to eq(new_ride_path)
+
+
+      fill_in 'ride[origin]', :with => "asdfewf, ca"
+      fill_in 'ride[destination]', :with => "fdssdf, ca"
+      page.find('#ride_date').set("2018-03-01")
+
+      click_on 'Make a Ride'
+
+      expect(page).to have_content('trouble')
+
+    end
 end
