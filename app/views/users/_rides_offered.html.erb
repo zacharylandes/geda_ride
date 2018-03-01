@@ -4,8 +4,9 @@
               <th >Origin</th>
               <th >Destination</th>
               <th >Date</th>
-              <th >Remove</th>
-
+              <% if current_user == @user %>
+                <th >Remove</th>
+              <% end %>
             </tr>
               <% @user.rides.each do |ride| %>
               <tr >
@@ -13,8 +14,9 @@
                 <td><%= link_to ride.origin.full_street_address, origins_path(ride.origin) %></td>
                 <td><%= link_to ride.destination.full_street_address, destinations_path( ride.destination) %></td>
                 <td><%= ride.date%></td>
-                <td><%= button_to "Delete", ride_path(ride), method: :delete %></td>
-
+                <% if current_user == @user %>
+                  <td><%= button_to "Delete", ride_path(ride), method: :delete %></td>
+                <% end %>
               </tr>
               <% end %>
         </table>
