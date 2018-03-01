@@ -1,8 +1,5 @@
 class ChargesController < ApplicationController
-  #
-  # def new
-  #   @ride = Ride.find(params['ride'])
-  # end
+
 
   def create
     ride = Ride.find(params['ride'])
