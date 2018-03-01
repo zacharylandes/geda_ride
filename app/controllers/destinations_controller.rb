@@ -9,9 +9,13 @@ end
   def show
     location = params['id']
     begin
-      @destinations = Destination.within(15, :origin=> location)
+      destinations = Destination.within(15, :origin=> location)
+      if destinations.empty?
+        return :not_found
+      else
+        @destinations = destinations
+      end
       rescue Geokit::Geocoders::GeocodeError
-      return  false
     end
   end
 end
