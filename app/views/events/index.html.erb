@@ -2,8 +2,11 @@
   <%= render :partial => "layouts/event_search" %>
 <% end %>
 <% content_for :bottom do %>
-
-<h1>Trending Events... </h1>
+<% if params['origin'] %>
+  <h1>What's hopping in <%= params['origin'] %></h1>
+<% else %>
+  <h1>Trending Events... </h1>
+<% end %>
   <table class= "table " id= 'ride-list' >
       <tr>
         <th >Event</th>
