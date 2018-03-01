@@ -36,7 +36,7 @@
           <% @events.each do |event| %>
           <tr >
             <td><%=  event.title %>
-            <td><%= link_to @destinations.first.full_street_address %>
+            <td><%=  @destinations.first.full_street_address %>
             <td><%= event.date %>
             <td><%=link_to image_tag(events), event.url, class: 'event-image' %></td>
           </tr>
