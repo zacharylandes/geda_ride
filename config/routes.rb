@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :origins, only: [:index]
   resources :rides
   resources :users
-resources :events
+  resources :events
   resources :requests, only: [:create]
   resources :conversations do
     resources :messages

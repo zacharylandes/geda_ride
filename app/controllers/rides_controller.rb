@@ -41,6 +41,16 @@ class RidesController < ApplicationController
     @requester = current_user
   end
 
+  def destroy
+    ride = Ride.find(params[:id])
+    user = ride.user
+    ride.origin.delete
+    ride.destination.delete
+    ride.delete
+    flash[:notice] = 'Ride Deleted'
+    redirect_to user_path(user)
+  end
+
   private
 
   def ride_params

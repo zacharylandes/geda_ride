@@ -1,17 +1,18 @@
 class RideService
 
   def create_ride(params, user)
-    ride =Ride.create!(user: user, date: params['date'])
-    origin = Origin.create!(full_street_address: params['origin'], ride:ride )
+    ride =Ride.new(user: user, date: params['date'])
+    origin = Origin.create(full_street_address: params['origin'], ride:ride )
     destination = Destination.create(full_street_address:params['destination'], ride:ride)
     if origin.latitude == nil || destination.longitude == nil
-      return false
+      shut_it_down(ride)
     else
+      ride.save
       ride
     end
   end
 
-   def origin_finder(origin)
+  def origin_finder(origin)
     begin
       origin = Origin.within(15, :origin=> origin)
       rescue Geokit::Geocoders::GeocodeError
@@ -73,5 +74,12 @@ class RideService
 
   def reviews
     ["#{Faker::MostInterestingManInTheWorld.quote}","#{Faker::Seinfeld.character}" ]
+  end
+
+  def shut_it_down(ride)
+    ride.origin.delete
+    ride.destination.delete
+    ride.delete
+    return false
   end
 end

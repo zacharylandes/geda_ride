@@ -6,7 +6,7 @@ Geokit::default_formula = :sphere
 # services.  For no timeout at all, comment out the setting.  The timeout unit
 # is in seconds.
 Geokit::Geocoders::request_timeout = 3
-Geokit::Geocoders::GoogleGeocoder.api_key = "AIzaSyDUvNT9pV8GuxbCSpjb2tg5_18_91ZUhzI"
+Geokit::Geocoders::GoogleGeocoder.api_key = ENV['GEOKIT']
 # This setting can be used if web service calls must be routed through a proxy.
 # These setting can be nil if not needed, otherwise, a valid URI must be
 # filled in at a minimum.  If the proxy requires authentication, the username

@@ -7,7 +7,6 @@ class HomeController < ApplicationController
     @trending = Ride.order("RANDOM()").limit(6)
     if params['origin']
       ride = RideService.new.find_ride(params['origin'], params['destination'], params['date'])
-      @events = EventService.new.find_event(params['destination'])
       if  ride.nil? || ride == false || !ride.any?
           render :not_found
       elsif ride.class == Hash

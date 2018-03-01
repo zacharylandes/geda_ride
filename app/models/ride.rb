@@ -4,6 +4,7 @@ class Ride < ApplicationRecord
   belongs_to :user
   has_many :requests
 
+
   enum status: %w(pending approved)
 
   def route
