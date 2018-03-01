@@ -8,6 +8,10 @@ end
 
   def show
     location = params['id']
-    @destinations = Destination.where("replace(full_street_address, ' ', '') ILIKE replace(?, ' ', '')", "#{location}")
+    begin
+      @destinations = Destination.within(15, :origin=> location)
+      rescue Geokit::Geocoders::GeocodeError
+      return  false
+    end
   end
 end
